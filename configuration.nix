@@ -2,6 +2,8 @@
   environment.systemPackages = with pkgs; [
     nerd-fonts.fira-code
     noto-fonts-emoji
+    nodejs
+    git
   ];
 
   nix.settings.experimental-features = "nix-command flakes";
@@ -86,16 +88,24 @@
 
   programs.nixvim = ./nixvim.nix;
 
-  homebrew.enable = true;
+  homebrew = {
+    enable = true;
 
-  homebrew.casks = [
-    "google-chrome"
-    "discord"
-    "alacritty"
-    "utm"
-    "telegram"
-    "messenger"
-    "github"
-    "eq-mac"
-  ];
+    onActivation = {
+      autoUpdate = true;
+      cleanup = "uninstall";
+      upgrade = true;
+    };
+    casks = [
+      "google-chrome"
+      "discord"
+      "alacritty"
+      "utm"
+      "telegram"
+      "messenger"
+      "github"
+      "eqmac"
+      "spotify"
+    ];
+  };
 }
