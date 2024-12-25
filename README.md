@@ -1,4 +1,4 @@
-# Install steps
+# Installation
 ```
 
 # install xcode
@@ -28,6 +28,6 @@ nix run nix-darwin -- switch --flake ~/.config/nix-darwin
 # reset shell
 zsh
 
-# run
+# test run & cleanup
 nix-full
 ```
