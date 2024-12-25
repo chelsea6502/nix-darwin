@@ -24,6 +24,9 @@ sed -i '' "s/Chelseas-Macbook-Air/$(scutil --get LocalHostName)/g" flake.nix
 # install nix-darwin
 nix run nix-darwin -- switch --flake ~/.config/nix-darwin
 
+# reset shell
+zsh
+
 # run
 nix-full
 ```
