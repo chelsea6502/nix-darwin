@@ -59,6 +59,7 @@
       };
     };
 
+    programs.zsh.enable = true;
     programs.zsh.shellAliases = {
       edit = "nvim";
       Ec = "nvim ~/.config/nix-darwin/configuration.nix";
