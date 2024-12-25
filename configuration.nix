@@ -58,6 +58,20 @@
         padding.y = 14;
       };
     };
+
+    programs.zsh.shellAliases = {
+      edit = "nvim";
+      Ec = "nvim ~/.config/nix-darwin/configuration.nix";
+      EC = "Ec && switch";
+      ECC = "Ec && nix-full";
+      Ef = "nvim ~/.config/nix-darwin/flake.nix";
+      En = "nvim ~/.config/nix-darwin/nixvim.nix";
+      switch = "darwin-rebuild switch --flake ~/.config/nix-darwin/";
+      nix-update = "cd ~/.config/nix-darwin/ && nix flake update";
+      nix-clean = "nix-collect-garbage -d && nix-store --optimise";
+      nix-verify = "nix-store --verify --check-contents";
+      nix-full = "nix-update && switch && nix-clean && nix-verify";
+    };
   };
 
   nix.optimise.automatic = true;
