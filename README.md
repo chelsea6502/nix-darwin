@@ -18,6 +18,9 @@ mkdir -p ~/.config/
 cd ~/.config/
 git clone https://github.com/chelsea6502/nix-darwin/
 
+# replace the hostname with the current one
+sed -i '' "s/Chelseas-Macbook-Air/$(scutil --get LocalHostName)/g" flake.nix
+
 # install nix-darwin
 nix run nix-darwin -- switch --flake ~/.config/nix-darwin
 
