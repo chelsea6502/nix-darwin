@@ -68,8 +68,8 @@
     # zsh
     programs.zsh.enable = true;
     programs.zsh.initExtra = ''
-            eval "$(/opt/homebrew/bin/brew shellenv)"
-      			export PROMPT="%F{green}%F{blue}%~%f $ "
+      eval "$(/opt/homebrew/bin/brew shellenv)"
+      export PROMPT="%F{green}%F{blue}%~%f $ "
     '';
     programs.zsh.syntaxHighlighting.enable = true;
     programs.zsh.shellAliases = {
