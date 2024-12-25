@@ -123,7 +123,7 @@
     autoread = true;
     undofile = true;
     undodir = "/tmp/.vim-undo-dir";
-    backupdir = "~/nvim-history";
+    backupdir = "/.neovim-history";
   };
 
   extraPlugins = with pkgs; [
