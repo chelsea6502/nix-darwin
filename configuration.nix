@@ -57,7 +57,7 @@
       cursor.style.blinking = "On";
       window = {
         startup_mode = "Fullscreen";
-        decorations = "None";
+        decorations = "buttonless";
         padding.x = 14;
         padding.y = 14;
       };
@@ -167,5 +167,22 @@
     ];
 
   };
+
+  services.aerospace.enable = true;
+  services.aerospace.settings = {
+    gaps = {
+      inner.horizontal = 8;
+      outer.left = 8;
+      outer.bottom = 8;
+      outer.top = 8;
+      outer.right = 8;
+
+    };
+  };
+
+  services.jankyborders.enable = true;
+  services.jankyborders.active_color = "0xFFFFFFFF";
+  services.jankyborders.inactive_color = "0x88FFFFFF";
+  services.jankyborders.width = 2.0;
 
 }
