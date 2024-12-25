@@ -20,6 +20,7 @@
       # $ darwin-rebuild build --flake .#Chelseas-MacBook-Air
       darwinConfigurations."Chelseas-MacBook-Air" =
         nix-darwin.lib.darwinSystem {
+          inherit inputs;
           modules = [
             home-manager.darwinModules.home-manager
             ./configuration.nix

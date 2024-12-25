@@ -85,4 +85,17 @@
   home-manager.useUserPackages = true;
 
   programs.nixvim = ./nixvim.nix;
+
+  homebrew.enable = true;
+
+  homebrew.casks = [
+    "google-chrome"
+    "discord"
+    "alacritty"
+    "utm"
+    "telegram"
+    "messenger"
+    "github"
+    "eq-mac"
+  ];
 }
