@@ -115,10 +115,19 @@
   };
 
   system.defaults = {
+    # show hidden files 
     NSGlobalDomain.AppleShowAllFiles = true;
+
+    # trackpad sensitivity
     NSGlobalDomain."com.apple.trackpad.scaling" = 2.0;
+
+    # firm trackpad click
     trackpad = { FirstClickThreshold = 2; };
+
+    # auto hide dock
     dock.autohide = true;
+
+    # hide files on desktop
     WindowManager.StandardHideDesktopIcons = true;
   };
 }
