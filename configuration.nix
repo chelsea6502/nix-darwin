@@ -1,6 +1,6 @@
 { pkgs, self, ... }: {
   environment.systemPackages = with pkgs; [
-    nerd-fonts.fira-code
+    fira-code-nerdfont
     noto-fonts-emoji
     nodejs
     git
@@ -31,7 +31,7 @@
       name = "Open Sans";
     };
     monospace = {
-      package = pkgs.nerd-fonts.fira-code;
+      package = pkgs.fira-code-nerdfont;
       name = "FiraCode Nerd Font Mono";
     };
     emoji = {

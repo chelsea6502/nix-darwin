@@ -88,7 +88,7 @@
           nixpkgsInputName = "nixpkgs";
         };
       };
-      #lua_ls.enable = true;
+      lua_ls.enable = true;
     };
     luasnip.enable = true;
     telescope.enable = true;
@@ -123,7 +123,7 @@
     autoread = true;
     undofile = true;
     undodir = "/tmp/.vim-undo-dir";
-    backupdir = "/.neovim-history";
+    backupdir = "~/.neovim-history";
   };
 
   extraPlugins = with pkgs; [
