@@ -149,6 +149,22 @@
       FXPreferredViewStyle = "clmv";
     };
 
+    dock.show-recents = false;
+    dock.persistent-apps = [
+      "/Applications/Spotify.app"
+      "/Applications/Safari.app"
+      "/System/Applications/Notes.app"
+      "/Applications/Google Chrome.app"
+      "/Applications/UTM.app"
+      "/Applications/Discord.app"
+      "/Applications/Messenger.app"
+      "/Applications/GitHub Desktop.app"
+      "/Applications/Alacritty.app"
+      "/Applications/Telegram.app"
+      "/System/Applications/Messages.app"
+      "/System/Applications/Mail.app"
+    ];
+
   };
 
 }
