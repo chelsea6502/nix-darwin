@@ -147,6 +147,7 @@
       ShowPathbar = true;
       QuitMenuItem = true;
       FXPreferredViewStyle = "clmv";
+      FXRemoveOldTrashItems = true;
     };
 
     dock.show-recents = false;
