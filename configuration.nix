@@ -62,6 +62,9 @@
     };
 
     programs.zsh.enable = true;
+    programs.zsh.initExtra = ''
+      eval "$(/opt/homebrew/bin/brew shellenv)"
+    '';
     programs.zsh.shellAliases = {
       edit = "nvim";
       Ec = "nvim ~/.config/nix-darwin/configuration.nix";
