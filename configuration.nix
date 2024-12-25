@@ -114,6 +114,9 @@
     ];
   };
 
+  # no bong
+  system.startup.chime = false;
+
   system.defaults = {
     # show hidden files 
     NSGlobalDomain.AppleShowAllFiles = true;
@@ -129,5 +132,23 @@
 
     # hide files on desktop
     WindowManager.StandardHideDesktopIcons = true;
+
+    # control 
+    controlcenter = {
+      AirDrop = false;
+      Bluetooth = false;
+      BatteryShowPercentage = true;
+    };
+
+    # auto-install updates
+    SoftwareUpdate.AutomaticallyInstallMacOSUpdates = true;
+
+    finder = {
+      ShowPathbar = true;
+      QuitMenuItem = true;
+      FXPreferredViewStyle = "clmv";
+    };
+
   };
+
 }
