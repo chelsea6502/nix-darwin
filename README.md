@@ -17,6 +17,7 @@ curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix 
 mkdir -p ~/.config/
 cd ~/.config/
 git clone https://github.com/chelsea6502/nix-darwin/
+cd ./nix-darwin
 
 # replace the hostname with the current one
 sed -i '' "s/Chelseas-Macbook-Air/$(scutil --get LocalHostName)/g" flake.nix
