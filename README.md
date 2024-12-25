@@ -15,4 +15,7 @@ zsh
 
 darwin-rebuild switch --flake ~/.config/nix-darwin
 
+zsh
+
+nix-full
 ```
