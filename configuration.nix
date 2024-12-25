@@ -113,4 +113,12 @@
       "spotify"
     ];
   };
+
+  system.defaults = {
+    NSGlobalDomain.AppleShowAllFiles = true;
+    NSGlobalDomain."com.apple.trackpad.scaling" = 2.0;
+    trackpad = { FirstClickThreshold = 2; };
+    dock.autohide = true;
+    WindowManager.StandardHideDesktopIcons = true;
+  };
 }
