@@ -51,6 +51,8 @@
     stylix.autoEnable = true;
     programs.home-manager.enable = true;
     home.stateVersion = "24.11";
+
+    # Alacritty
     programs.alacritty.enable = true;
     programs.alacritty.settings = {
       cursor.style.shape = "Beam";
@@ -63,10 +65,13 @@
       };
     };
 
+    # zsh
     programs.zsh.enable = true;
     programs.zsh.initExtra = ''
-      eval "$(/opt/homebrew/bin/brew shellenv)"
+            eval "$(/opt/homebrew/bin/brew shellenv)"
+      			export PROMPT="%F{green}%F{blue}%~%f $ "
     '';
+    programs.zsh.syntaxHighlighting.enable = true;
     programs.zsh.shellAliases = {
       edit = "nvim";
       Ec = "nvim ~/.config/nix-darwin/configuration.nix";
