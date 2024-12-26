@@ -12,16 +12,29 @@
       url = "github:nix-community/nixvim/nixos-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+    nix-homebrew.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs =
-    inputs@{ self, nix-darwin, nixpkgs, stylix, home-manager, nixvim }: {
-      # Build darwin flake using:
-      # $ darwin-rebuild build --flake .#Chelseas-MacBook-Air
+  outputs = inputs@{ self, nix-darwin, nixpkgs, stylix, home-manager, nixvim
+    , nix-homebrew }: {
       darwinConfigurations."Chelseas-MacBook-Air" =
         nix-darwin.lib.darwinSystem {
           inherit inputs;
           modules = [
+            nix-homebrew.darwinModules.nix-homebrew
+            {
+              nix-homebrew = {
+                # Install Homebrew under the default prefix
+                enable = true;
+
+                # Apple Silicon Only: Also install Homebrew under the default Intel prefix for Rosetta 2
+                enableRosetta = true;
+
+                # User owning the Homebrew prefix
+                user = "chelsea";
+              };
+            }
             home-manager.darwinModules.home-manager
             ./configuration.nix
             stylix.darwinModules.stylix
