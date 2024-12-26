@@ -10,6 +10,8 @@
 
   nix.settings.experimental-features = "nix-command flakes";
 
+  nix.settings.max-jobs = 8;
+
   system.stateVersion = 5;
 
   nixpkgs.hostPlatform = "aarch64-darwin";
