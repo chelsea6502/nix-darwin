@@ -9,7 +9,7 @@ curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix 
 
 # Setup nix-darwin
 git clone https://github.com/chelsea6502/nix-darwin/ ~/.config/nix-darwin && \
-sed -i '' "s/Chelseas-Macbook-Air/$(scutil --get LocalHostName)/g" ~/.config/nix-darwin/flake.nix && \
+sed -i "" "s/Chelseas-Macbook-Air/$(scutil --get LocalHostName)/g" ~/.config/nix-darwin/flake.nix && \
 nix run nix-darwin -- switch --flake ~/.config/nix-darwin
 
 # Finalize
