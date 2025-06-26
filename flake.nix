@@ -2,14 +2,14 @@
   description = "Example nix-darwin system flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/release-24.11";
-    nix-darwin.url = "github:LnL7/nix-darwin";
+    nixpkgs.url = "github:NixOS/nixpkgs/release-25.05";
+    nix-darwin.url = "github:LnL7/nix-darwin/nix-darwin-25.05";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-    stylix.url = "github:danth/stylix/release-24.11";
-    home-manager.url = "github:nix-community/home-manager/release-24.11";
+    stylix.url = "github:danth/stylix/release-25.05";
+    home-manager.url = "github:nix-community/home-manager/release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixvim = {
-      url = "github:nix-community/nixvim/nixos-24.11";
+      url = "github:nix-community/nixvim/nixos-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
@@ -18,7 +18,7 @@
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, stylix, home-manager, nixvim
     , nix-homebrew }: {
-      darwinConfigurations."Chelseas-MacBook-Air" =
+      darwinConfigurations."Chelseas-MacBook-Pro" =
         nix-darwin.lib.darwinSystem {
           inherit inputs;
           modules = [

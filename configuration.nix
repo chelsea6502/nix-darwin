@@ -1,13 +1,12 @@
 { pkgs, self, ... }: {
   environment.systemPackages = with pkgs; [
-    fira-code-nerdfont
+    nerd-fonts.fira-code
     noto-fonts-emoji
     nodejs
     git
   ];
 
-  security.pam.enableSudoTouchIdAuth = true;
-
+  security.pam.services.sudo_local.touchIdAuth = true;
   nix.settings.experimental-features = "nix-command flakes";
 
   system.stateVersion = 5;
@@ -31,7 +30,7 @@
       name = "Open Sans";
     };
     monospace = {
-      package = pkgs.fira-code-nerdfont;
+      package = pkgs.nerd-fonts.fira-code;
       name = "FiraCode Nerd Font Mono";
     };
     emoji = {
@@ -67,7 +66,7 @@
 
     # zsh
     programs.zsh.enable = true;
-    programs.zsh.initExtra = ''
+    programs.zsh.initContent = ''
       eval "$(/opt/homebrew/bin/brew shellenv)"
       export PROMPT="%F{green}%F{blue}%~%f $ "
     '';
@@ -79,7 +78,7 @@
       ECC = "Ec && nix-full";
       Ef = "nvim ~/.config/nix-darwin/flake.nix";
       En = "nvim ~/.config/nix-darwin/nixvim.nix";
-      switch = "darwin-rebuild switch --flake ~/.config/nix-darwin/";
+      switch = "sudo darwin-rebuild switch --flake ~/.config/nix-darwin/";
       nix-update = "cd ~/.config/nix-darwin/ && nix flake update";
       nix-clean = "nix-collect-garbage -d && nix-store --optimise";
       nix-verify = "nix-store --verify --check-contents";
@@ -116,6 +115,11 @@
       "github"
       "eqmac"
       "spotify"
+      "microsoft-office"
+      "steam"
+      "battle-net"
+      "signal"
+      "moonlight"
     ];
   };
 
@@ -184,6 +188,8 @@
 
     };
   };
+
+  system.primaryUser = "chelsea";
 
   services.jankyborders.enable = true;
   services.jankyborders.active_color = "0xFFFFFFFF";
