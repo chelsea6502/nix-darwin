@@ -31,6 +31,11 @@
     }
     {
       mode = "n";
+      action = "<cmd>Telescope project<CR>";
+      key = "FF";
+    }
+    {
+      mode = "n";
       action = "<cmd>Telescope current_buffer_fuzzy_find theme=dropdown<CR>";
       key = "/";
     }
@@ -46,6 +51,7 @@
       enable = true;
       settings.indent.char = "▏";
     };
+    typescript-tools.enable = true;
     gitsigns.enable = true;
     gitsigns.settings = {
       signs = {
@@ -81,17 +87,17 @@
       nil_ls = {
         enable = true;
 
-        settings.nix.maxMemoryMB = 5000;
+        settings.nix.maxMemoryMB = 20000;
         settings.nix.flake = {
           autoArchive = true;
           autoEvalInputs = true;
-          nixpkgsInputName = "nixpkgs";
         };
       };
       lua_ls.enable = true;
     };
     luasnip.enable = true;
     telescope.enable = true;
+    telescope.extensions.project.enable = true;
     noice.enable = true;
     web-devicons.enable = true;
   };
@@ -123,7 +129,7 @@
     autoread = true;
     undofile = true;
     undodir = "/tmp/.vim-undo-dir";
-    backupdir = "~/.neovim-history";
+    backupdir = ".nvim-history";
   };
 
   extraPlugins = with pkgs; [

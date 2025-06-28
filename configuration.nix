@@ -4,6 +4,8 @@
     noto-fonts-emoji
     nodejs
     git
+    typescript
+    typescript-language-server
   ];
 
   security.pam.services.sudo_local.touchIdAuth = true;
@@ -134,7 +136,7 @@
     NSGlobalDomain."com.apple.trackpad.scaling" = 2.0;
 
     # firm trackpad click
-    trackpad = { FirstClickThreshold = 2; };
+    trackpad.FirstClickThreshold = 2;
 
     # auto hide dock
     dock.autohide = true;
