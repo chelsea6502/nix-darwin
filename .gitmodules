@@ -1,4 +1,0 @@
-[submodule "nixvim_sub"]
-	path = nixvim_sub
-	url = git@github.com:chelsea6502/nixvim.git
-	branch = main

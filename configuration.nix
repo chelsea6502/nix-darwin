@@ -51,7 +51,7 @@
     stylix.enable = true;
     stylix.autoEnable = true;
     programs.home-manager.enable = true;
-    home.stateVersion = "25.05";
+    home.stateVersion = "24.11";
 
     # Alacritty
     programs.alacritty.enable = true;
@@ -122,7 +122,6 @@
       "battle-net"
       "signal"
       "moonlight"
-      "transmission"
     ];
   };
 
