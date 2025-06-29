@@ -2,6 +2,7 @@
   enable = true;
 
   globals.mapleader = " ";
+  clipboard.providers.wl-copy.enable = true;
 
   opts = {
     background = "dark";
@@ -16,7 +17,7 @@
     textwidth = 80;
     relativenumber = true;
     clipboard = "unnamedplus";
-    fillchars = { vert = "\\"; };
+    fillchars.vert = "\\";
     updatetime = 50;
     ruler = false;
     showcmd = false;
@@ -73,9 +74,9 @@
     }
   ];
 
-  clipboard.providers.wl-copy.enable = true;
   plugins = {
     lsp-format.enable = true;
+
     nvim-autopairs.enable = true;
 
     indent-blankline.enable = true;
