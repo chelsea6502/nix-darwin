@@ -48,8 +48,6 @@
   };
 
   home-manager.users.chelsea = {
-    stylix.enable = true;
-    stylix.autoEnable = true;
     programs.home-manager.enable = true;
     home.stateVersion = "24.11";
 
@@ -97,7 +95,7 @@
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
 
-  programs.nixvim = ./nixvim.nix;
+  programs.nixvim = import ./nixvim.nix { inherit pkgs; };
 
   homebrew = {
     enable = true;
