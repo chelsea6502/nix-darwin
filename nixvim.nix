@@ -39,7 +39,6 @@
       action = "<cmd>Telescope current_buffer_fuzzy_find theme=dropdown<CR>";
       key = "/";
     }
-
   ];
 
   #colorscheme = "gruvbox-material";
@@ -47,58 +46,51 @@
   plugins = {
     lsp-format.enable = true;
     nvim-autopairs.enable = true;
-    indent-blankline = {
-      enable = true;
-      settings.indent.char = "▏";
-    };
+
+    indent-blankline.enable = true;
+    indent-blankline.settings.indent.char = "▏";
+
     typescript-tools.enable = true;
+
     gitsigns.enable = true;
-    gitsigns.settings = {
-      signs = {
-        add.text = "▎";
-        change.text = "▎";
-        delete.text = "";
-        topdelete.text = "";
-        changedelete.text = "▎";
-        untracked.text = "▎";
-      };
+    gitsigns.settings.signs = {
+      add.text = "▎";
+      change.text = "▎";
+      delete.text = "";
+      topdelete.text = "";
+      changedelete.text = "▎";
+      untracked.text = "▎";
     };
+
     none-ls = {
       enable = true;
       enableLspFormat = true;
       sources = {
-        completion.luasnip.enable = true;
         formatting.nixfmt.enable = true;
         formatting.stylua.enable = true;
         formatting.clang_format.enable = true;
       };
     };
-    cmp = {
-      enable = true;
-      autoEnableSources = true;
-      settings.sources =
-        [ { name = "nvim_lsp"; } { name = "path"; } { name = "buffer"; } ];
-    };
+
     treesitter.enable = true;
     treesitter.settings.auto_install = true;
     treesitter.settings.highlight.enable = true;
+
     lsp.enable = true;
     lsp.servers = {
-      nil_ls = {
-        enable = true;
-
-        settings.nix.maxMemoryMB = 15000;
-        settings.nix.flake = {
-          autoArchive = true;
-          autoEvalInputs = true;
-        };
+      nil_ls.enable = true;
+      nil_ls.settings.nix = {
+        maxMemoryMB = 15000;
+        flake.autoArchive = true;
+        flake.autoEvalInputs = true;
       };
-      lua_ls.enable = true;
     };
-    luasnip.enable = true;
+
     telescope.enable = true;
     telescope.extensions.project.enable = true;
+
     noice.enable = true;
+
     web-devicons.enable = true;
   };
 
@@ -132,6 +124,8 @@
     backupdir = ".nvim-history";
   };
 
+  globals.mapleader = " ";
+
   extraPlugins = with pkgs; [
     vimPlugins.no-neck-pain-nvim
     vimPlugins.gruvbox-material
@@ -144,45 +138,5 @@
     	options = { width = 100, minSideBufferWidth = 100 },
     	buffers = { right = { enabled = false }, wo = { fillchars = "vert: ,eob: " } },
     })
-
-    local luasnip = require("luasnip")
-    local cmp = require("cmp")
-
-    cmp.setup({
-    	mapping = {
-    		["<CR>"] = cmp.mapping(function(fallback)
-    			if cmp.visible() then
-    				if luasnip.expandable() then
-    					luasnip.expand()
-    				else
-    					cmp.confirm({ select = true })
-    				end
-    			else
-    				fallback()
-    			end
-    		end),
-    		["<Tab>"] = cmp.mapping(function(fallback)
-    			if cmp.visible() then
-    				cmp.select_next_item()
-    			elseif luasnip.locally_jumpable(1) then
-    				luasnip.jump(1)
-    			else
-    				fallback()
-    			end
-    		end, { "i", "s" }),
-    		["<S-Tab>"] = cmp.mapping(function(fallback)
-    			if cmp.visible() then
-    				cmp.select_prev_item()
-    			elseif luasnip.locally_jumpable(-1) then
-    				luasnip.jump(-1)
-    			else
-    				fallback()
-    			end
-    		end, { "i", "s" }),
-    	},
-    })
   '';
-
-  # Declare global variables (vim.g.*)
-  globals = { mapleader = " "; };
 }
