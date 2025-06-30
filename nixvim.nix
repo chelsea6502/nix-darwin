@@ -94,14 +94,10 @@
       untracked.text = "▎";
     };
 
-    blink-cmp = {
-      enable = true;
-      settings = {
-        keymap.preset = "enter";
-        completion.documentation.auto_show = true;
-        signature.enabled = true;
-      };
-    };
+    blink-cmp.enable = true;
+    blink-cmp.settings.keymap.preset = "enter";
+    blink-cmp.settings.completion.documentation.auto_show = true;
+    blink-cmp.settings.signature.enabled = true;
 
     none-ls.enable = true;
     none-ls.enableLspFormat = true;
@@ -123,14 +119,10 @@
     telescope.extensions.project.enable = true;
 
     noice.enable = true;
-
     web-devicons.enable = true;
   };
 
-  extraPlugins = with pkgs; [
-    vimPlugins.no-neck-pain-nvim
-    vimPlugins.gruvbox-material
-  ];
+  extraPlugins = with pkgs.vimPlugins; [ no-neck-pain-nvim gruvbox-material ];
 
   extraConfigLua = ''
     vim.cmd("colorscheme gruvbox-material")
