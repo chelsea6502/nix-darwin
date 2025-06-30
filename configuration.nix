@@ -8,60 +8,28 @@
     typescript-language-server
   ];
 
-  security.pam.services.sudo_local.touchIdAuth = true;
-  nix.settings.experimental-features = "nix-command flakes";
-
-  system.stateVersion = 5;
-
   nixpkgs.hostPlatform = "aarch64-darwin";
 
-  stylix.enable = true;
-  stylix.autoEnable = true;
-  stylix.image = "/Users/chelsea/Downloads/test.jpg";
+  users.users.chelsea.name = "chelsea";
+  users.users.chelsea.home = "/Users/chelsea";
 
-  stylix.base16Scheme =
-    "${pkgs.base16-schemes}/share/themes/gruvbox-material-dark-medium.yaml";
+  programs.nixvim = import ./nixvim.nix { inherit pkgs; };
 
-  stylix.fonts = {
-    serif = {
-      package = pkgs.open-sans;
-      name = "Open Sans";
-    };
-    sansSerif = {
-      package = pkgs.open-sans;
-      name = "Open Sans";
-    };
-    monospace = {
-      package = pkgs.nerd-fonts.fira-code;
-      name = "FiraCode Nerd Font Mono";
-    };
-    emoji = {
-      package = pkgs.noto-fonts-emoji;
-      name = "Noto Color Emoji";
-    };
-    sizes.terminal = 14;
-  };
-
-  users.users.chelsea = {
-    name = "chelsea";
-    home = "/Users/chelsea";
-  };
-
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
   home-manager.users.chelsea = {
     programs.home-manager.enable = true;
-    home.stateVersion = "24.11";
+    home.stateVersion = "25.05";
 
     # Alacritty
     programs.alacritty.enable = true;
     programs.alacritty.settings = {
       cursor.style.shape = "Beam";
       cursor.style.blinking = "On";
-      window = {
-        startup_mode = "Fullscreen";
-        decorations = "buttonless";
-        padding.x = 14;
-        padding.y = 14;
-      };
+      window.startup_mode = "Fullscreen";
+      window.decorations = "buttonless";
+      window.padding.x = 14;
+      window.padding.y = 14;
     };
 
     # zsh
@@ -86,25 +54,34 @@
     };
   };
 
-  nix.optimise.automatic = true;
-  nix.gc.automatic = true;
-  nix.gc.options = "--delete-older-than 7d";
+  stylix = {
+    enable = true;
+    autoEnable = true;
+    image = "/Users/chelsea/Downloads/test.jpg";
+    base16Scheme =
+      "${pkgs.base16-schemes}/share/themes/gruvbox-material-dark-medium.yaml";
 
-  nix.settings.max-jobs = 8;
+    fonts = {
+      sizes.terminal = 14;
 
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
-
-  programs.nixvim = import ./nixvim.nix { inherit pkgs; };
+      serif.package = pkgs.open-sans;
+      serif.name = "Open Sans";
+      sansSerif.package = pkgs.open-sans;
+      sansSerif.name = "Open Sans";
+      monospace.package = pkgs.nerd-fonts.fira-code;
+      monospace.name = "FiraCode Nerd Font Mono";
+      emoji.package = pkgs.noto-fonts-emoji;
+      emoji.name = "Noto Color Emoji";
+    };
+  };
 
   homebrew = {
     enable = true;
 
-    onActivation = {
-      autoUpdate = true;
-      cleanup = "uninstall";
-      upgrade = true;
-    };
+    onActivation.autoUpdate = true;
+    onActivation.cleanup = "uninstall";
+    onActivation.upgrade = true;
+
     casks = [
       "google-chrome"
       "discord"
@@ -123,7 +100,17 @@
     ];
   };
 
-  # no bong
+  nix = {
+    optimise.automatic = true;
+    gc.automatic = true;
+    gc.options = "--delete-older-than 7d";
+
+    settings.max-jobs = 8;
+    settings.experimental-features = "nix-command flakes";
+  };
+
+  system.primaryUser = "chelsea";
+  system.stateVersion = 5;
   system.startup.chime = false;
 
   system.defaults = {
@@ -143,21 +130,17 @@
     WindowManager.StandardHideDesktopIcons = true;
 
     # control 
-    controlcenter = {
-      AirDrop = false;
-      Bluetooth = false;
-      BatteryShowPercentage = true;
-    };
+    controlcenter.AirDrop = false;
+    controlcenter.Bluetooth = false;
+    controlcenter.BatteryShowPercentage = true;
 
     # auto-install updates
     SoftwareUpdate.AutomaticallyInstallMacOSUpdates = true;
 
-    finder = {
-      ShowPathbar = true;
-      QuitMenuItem = true;
-      FXPreferredViewStyle = "clmv";
-      FXRemoveOldTrashItems = true;
-    };
+    finder.ShowPathbar = true;
+    finder.QuitMenuItem = true;
+    finder.FXPreferredViewStyle = "clmv";
+    finder.FXRemoveOldTrashItems = true;
 
     dock.show-recents = false;
     dock.persistent-apps = [
@@ -177,23 +160,19 @@
 
   };
 
-  services.aerospace.enable = true;
-  services.aerospace.settings = {
-    gaps = {
-      inner.horizontal = 8;
-      outer.left = 8;
-      outer.bottom = 8;
-      outer.top = 8;
-      outer.right = 8;
+  security.pam.services.sudo_local.touchIdAuth = true;
+  services = {
+    aerospace.enable = true;
+    aerospace.settings.gaps.inner.horizontal = 8;
+    aerospace.settings.gaps.outer.left = 8;
+    aerospace.settings.gaps.outer.bottom = 8;
+    aerospace.settings.gaps.outer.top = 8;
+    aerospace.settings.gaps.outer.right = 8;
 
-    };
+    jankyborders.enable = true;
+    jankyborders.active_color = "0xFFFFFFFF";
+    jankyborders.inactive_color = "0x88FFFFFF";
+    jankyborders.width = 2.0;
   };
-
-  system.primaryUser = "chelsea";
-
-  services.jankyborders.enable = true;
-  services.jankyborders.active_color = "0xFFFFFFFF";
-  services.jankyborders.inactive_color = "0x88FFFFFF";
-  services.jankyborders.width = 2.0;
 
 }
