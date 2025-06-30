@@ -94,6 +94,15 @@
       untracked.text = "▎";
     };
 
+    blink-cmp = {
+      enable = true;
+      settings = {
+        keymap.preset = "enter";
+        completion.documentation.auto_show = true;
+        signature.enabled = true;
+      };
+    };
+
     none-ls.enable = true;
     none-ls.enableLspFormat = true;
     none-ls.sources.formatting.nixfmt.enable = true;
