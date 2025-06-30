@@ -85,14 +85,12 @@
     typescript-tools.enable = true;
 
     gitsigns.enable = true;
-    gitsigns.settings.signs = {
-      add.text = "▎";
-      change.text = "▎";
-      delete.text = "";
-      topdelete.text = "";
-      changedelete.text = "▎";
-      untracked.text = "▎";
-    };
+    gitsigns.settings.signs.add.text = "▎";
+    gitsigns.settings.signs.change.text = "▎";
+    gitsigns.settings.signs.delete.text = "";
+    gitsigns.settings.signs.topdelete.text = "";
+    gitsigns.settings.signs.changedelete.text = "▎";
+    gitsigns.settings.signs.untracked.text = "▎";
 
     blink-cmp.enable = true;
     blink-cmp.settings.keymap.preset = "enter";

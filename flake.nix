@@ -21,24 +21,15 @@
           modules = [
             nix-homebrew.darwinModules.nix-homebrew
             {
-              nix-homebrew = {
-                # Install Homebrew under the default prefix
-                enable = true;
-
-                # Apple Silicon Only: Also install Homebrew under the default Intel prefix for Rosetta 2
-                enableRosetta = false;
-
-                # User owning the Homebrew prefix
-                user = "chelsea";
-              };
-            }
-            home-manager.darwinModules.home-manager
-            ./configuration.nix
-            stylix.darwinModules.stylix
-            nixvim.nixDarwinModules.nixvim
-            {
+              nix-homebrew.enable = true;
+              nix-homebrew.enableRosetta = false;
+              nix-homebrew.user = "chelsea";
               system.configurationRevision = self.rev or self.dirtyRev or null;
             }
+            home-manager.darwinModules.home-manager
+            stylix.darwinModules.stylix
+            nixvim.nixDarwinModules.nixvim
+            ./configuration.nix
           ];
         };
     };
