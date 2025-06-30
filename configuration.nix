@@ -61,18 +61,16 @@
     base16Scheme =
       "${pkgs.base16-schemes}/share/themes/gruvbox-material-dark-medium.yaml";
 
-    fonts = {
-      sizes.terminal = 14;
+    fonts.sizes.terminal = 14;
 
-      serif.package = pkgs.open-sans;
-      serif.name = "Open Sans";
-      sansSerif.package = pkgs.open-sans;
-      sansSerif.name = "Open Sans";
-      monospace.package = pkgs.nerd-fonts.fira-code;
-      monospace.name = "FiraCode Nerd Font Mono";
-      emoji.package = pkgs.noto-fonts-emoji;
-      emoji.name = "Noto Color Emoji";
-    };
+    fonts.serif.package = pkgs.open-sans;
+    fonts.serif.name = "Open Sans";
+    fonts.sansSerif.package = pkgs.open-sans;
+    fonts.sansSerif.name = "Open Sans";
+    fonts.monospace.package = pkgs.nerd-fonts.fira-code;
+    fonts.monospace.name = "FiraCode Nerd Font Mono";
+    fonts.emoji.package = pkgs.noto-fonts-emoji;
+    fonts.emoji.name = "Noto Color Emoji";
   };
 
   homebrew = {
@@ -100,14 +98,12 @@
     ];
   };
 
-  nix = {
-    optimise.automatic = true;
-    gc.automatic = true;
-    gc.options = "--delete-older-than 7d";
+  nix.optimise.automatic = true;
+  nix.gc.automatic = true;
+  nix.gc.options = "--delete-older-than 7d";
 
-    settings.max-jobs = 8;
-    settings.experimental-features = "nix-command flakes";
-  };
+  nix.settings.max-jobs = 8;
+  nix.settings.experimental-features = "nix-command flakes";
 
   system.primaryUser = "chelsea";
   system.stateVersion = 5;
@@ -161,18 +157,17 @@
   };
 
   security.pam.services.sudo_local.touchIdAuth = true;
-  services = {
-    aerospace.enable = true;
-    aerospace.settings.gaps.inner.horizontal = 8;
-    aerospace.settings.gaps.outer.left = 8;
-    aerospace.settings.gaps.outer.bottom = 8;
-    aerospace.settings.gaps.outer.top = 8;
-    aerospace.settings.gaps.outer.right = 8;
 
-    jankyborders.enable = true;
-    jankyborders.active_color = "0xFFFFFFFF";
-    jankyborders.inactive_color = "0x88FFFFFF";
-    jankyborders.width = 2.0;
-  };
+  services.aerospace.enable = true;
+  services.aerospace.settings.gaps.inner.horizontal = 8;
+  services.aerospace.settings.gaps.outer.left = 8;
+  services.aerospace.settings.gaps.outer.bottom = 8;
+  services.aerospace.settings.gaps.outer.top = 8;
+  services.aerospace.settings.gaps.outer.right = 8;
+
+  services.jankyborders.enable = true;
+  services.jankyborders.active_color = "0xFFFFFFFF";
+  services.jankyborders.inactive_color = "0x88FFFFFF";
+  services.jankyborders.width = 2.0;
 
 }
