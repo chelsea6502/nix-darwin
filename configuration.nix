@@ -94,7 +94,6 @@
       "steam"
       "battle-net"
       "signal"
-      "moonlight"
     ];
   };
 
