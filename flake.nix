@@ -23,6 +23,7 @@
               nix-homebrew.enableRosetta = false;
               nix-homebrew.user = "chelsea";
               system.configurationRevision = self.rev or self.dirtyRev or null;
+
             }
             home-manager.darwinModules.home-manager
             stylix.darwinModules.stylix

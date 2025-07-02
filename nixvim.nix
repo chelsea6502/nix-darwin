@@ -1,6 +1,8 @@
 { pkgs, ... }: {
   enable = true;
 
+  nixpkgs.config.allowUnfree = true;
+
   globals.mapleader = " ";
   clipboard.providers.wl-copy.enable = true;
 
@@ -75,14 +77,10 @@
   ];
 
   plugins = {
-    lsp-format.enable = true;
-
     nvim-autopairs.enable = true;
 
     indent-blankline.enable = true;
     indent-blankline.settings.indent.char = "▏";
-
-    typescript-tools.enable = true;
 
     gitsigns.enable = true;
     gitsigns.settings.signs.add.text = "▎";
@@ -92,16 +90,35 @@
     gitsigns.settings.signs.changedelete.text = "▎";
     gitsigns.settings.signs.untracked.text = "▎";
 
-    blink-cmp.enable = true;
     blink-cmp.settings.keymap.preset = "enter";
     blink-cmp.settings.completion.documentation.auto_show = true;
     blink-cmp.settings.signature.enabled = true;
 
+    luasnip.enable = true;
+
+    blink-copilot.enable = true;
+
+    blink-cmp = {
+      enable = true;
+      settings.sources.providers.copilot = {
+        async = true;
+        module = "blink-copilot";
+        name = "copilot";
+        score_offset = 100;
+      };
+
+      settings.sources.default = [ "lsp" "path" "buffer" "snippets" "copilot" ];
+    };
+
+    avante.enable = true;
+
     none-ls.enable = true;
+    lsp-format.enable = true;
     none-ls.enableLspFormat = true;
     none-ls.sources.formatting.nixfmt.enable = true;
-    none-ls.sources.formatting.stylua.enable = true;
     none-ls.sources.formatting.clang_format.enable = true;
+
+    typescript-tools.enable = true;
 
     treesitter.enable = true;
     treesitter.settings.auto_install = true;

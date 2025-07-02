@@ -1,4 +1,4 @@
-{ pkgs, self, ... }: {
+{ pkgs, lib, ... }: {
   environment.systemPackages = with pkgs; [
     nerd-fonts.fira-code
     noto-fonts-emoji
@@ -6,7 +6,10 @@
     git
     typescript
     typescript-language-server
+    claude-code
   ];
+
+  nixpkgs.config.allowUnfree = true;
 
   nixpkgs.hostPlatform = "aarch64-darwin";
 
