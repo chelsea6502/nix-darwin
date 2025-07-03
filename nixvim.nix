@@ -118,7 +118,6 @@
     blink-cmp.settings.completion.documentation.auto_show = true;
     blink-cmp.settings.signature.enabled = true;
 
-    luasnip.enable = true;
     blink-copilot.enable = true;
 
     blink-cmp.enable = true;
@@ -160,9 +159,6 @@
 
     lsp.enable = true;
     lsp.servers.nil_ls.enable = true;
-    lsp.servers.nil_ls.settings.nix.maxMemoryMB = 15000;
-    lsp.servers.nil_ls.settings.nix.flake.autoArchive = true;
-    lsp.servers.nil_ls.settings.nix.flake.autoEvalInputs = true;
     lsp.servers.nil_ls.settings.formatting.command = [ "${pkgs.nixfmt-rfc-style}/bin/nixfmt" ];
 
     lsp.servers.clangd.enable = true;
@@ -171,7 +167,7 @@
     telescope.enable = true;
     telescope.extensions.project.enable = true;
 
-    #noice.enable = true;
+    noice.enable = true;
     web-devicons.enable = true;
   };
 
