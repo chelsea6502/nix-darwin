@@ -83,6 +83,7 @@
     mini.enable = true;
     mini.modules.indentscope.symbol = "▏";
     mini.modules.indentscope.options.try_as_border = true;
+    mini.modules.indentscope.draw.delay = 0;
 
     gitsigns.enable = true;
     gitsigns.settings.signs.add.text = "▎";
