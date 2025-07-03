@@ -83,6 +83,16 @@
       action = "<cmd>AvanteChatNew<CR>";
       key = "<leader>aC";
     }
+    {
+      mode = "n";
+      action = "<cmd>Gitsigns reset_hunk<CR>";
+      key = "<leader>gr";
+    }
+    {
+      mode = "n";
+      action = "<cmd>Gitsigns reset_buffer<CR>";
+      key = "<leader>gR";
+    }
   ];
 
   plugins = {
