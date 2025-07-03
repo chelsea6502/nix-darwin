@@ -96,7 +96,6 @@
   ];
 
   plugins = {
-    nvim-autopairs.enable = true;
 
     indent-blankline.enable = true;
     indent-blankline.settings.indent.char = "▏";
@@ -105,6 +104,8 @@
     mini.modules.indentscope.symbol = "▏";
     mini.modules.indentscope.options.try_as_border = true;
     mini.modules.indentscope.draw.delay = 0;
+
+    mini.modules.pairs.enable = true;
 
     gitsigns.enable = true;
     gitsigns.settings.signs.add.text = "▎";
@@ -142,6 +143,13 @@
     avante.settings.hints.enable = false;
     avante.settings.providers.claude.model = "claude-3-7-sonnet-20250219";
 
+    typescript-tools.enable = true;
+
+    treesitter.enable = true;
+    treesitter.settings.auto_install = true;
+    treesitter.settings.highlight.enable = true;
+
+    lsp.enable = true;
     lsp.onAttach = ''
       -- Enable formatting on save for all LSP clients
       vim.api.nvim_create_autocmd("BufWritePre", {
@@ -151,18 +159,10 @@
       })
     '';
 
-    typescript-tools.enable = true;
-
-    treesitter.enable = true;
-    treesitter.settings.auto_install = true;
-    treesitter.settings.highlight.enable = true;
-
-    lsp.enable = true;
     lsp.servers.nil_ls.enable = true;
     lsp.servers.nil_ls.settings.formatting.command = [ "${pkgs.nixfmt-rfc-style}/bin/nixfmt" ];
 
     lsp.servers.clangd.enable = true;
-    lsp.servers.clangd.settings.fallbackFlags = [ "-std=c++17" ];
 
     telescope.enable = true;
     telescope.extensions.project.enable = true;
