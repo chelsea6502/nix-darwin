@@ -143,6 +143,7 @@
         score_offset = 100;
       };
     };
+
     blink-copilot.enable = true;
 
     avante.enable = true;
