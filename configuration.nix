@@ -94,6 +94,7 @@
       "steam"
       "battle-net"
       "signal"
+      "visual-studio-code"
     ];
   };
 

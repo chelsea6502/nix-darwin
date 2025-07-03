@@ -79,6 +79,10 @@
 
     indent-blankline.enable = true;
     indent-blankline.settings.indent.char = "▏";
+    indent-blankline.settings.scope.enabled = false;
+    mini.enable = true;
+    mini.modules.indentscope.symbol = "▏";
+    mini.modules.indentscope.options.try_as_border = true;
 
     gitsigns.enable = true;
     gitsigns.settings.signs.add.text = "▎";
