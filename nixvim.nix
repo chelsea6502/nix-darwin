@@ -95,22 +95,23 @@
     blink-cmp.settings.signature.enabled = true;
 
     luasnip.enable = true;
-
     blink-copilot.enable = true;
 
-    blink-cmp = {
-      enable = true;
-      settings.sources.providers.copilot = {
+    blink-cmp.enable = true;
+    blink-cmp.settings.sources = {
+      default = [ "lsp" "path" "buffer" "snippets" "copilot" ];
+
+      providers.copilot = {
         async = true;
         module = "blink-copilot";
         name = "copilot";
         score_offset = 100;
       };
-
-      settings.sources.default = [ "lsp" "path" "buffer" "snippets" "copilot" ];
     };
 
     avante.enable = true;
+    avante.settings.hints.enable = false;
+    avante.settings.providers.claude.model = "claude-3-7-sonnet-20250219";
 
     none-ls.enable = true;
     lsp-format.enable = true;
