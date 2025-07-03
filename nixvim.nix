@@ -125,7 +125,6 @@
     };
     blink-cmp.settings.signature.enabled = true;
     blink-cmp.settings.completion.documentation.auto_show = true;
-    blink-cmp.settings.completion.list.selection.auto_insert = true;
     blink-cmp.settings.completion.list.selection.preselect = false;
     blink-cmp.settings.sources = {
       default = [
