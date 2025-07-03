@@ -1,8 +1,6 @@
 { pkgs, ... }: {
   enable = true;
 
-  nixpkgs.config.allowUnfree = true;
-
   globals.mapleader = " ";
   clipboard.providers.wl-copy.enable = true;
 

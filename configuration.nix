@@ -6,10 +6,7 @@
     git
     typescript
     typescript-language-server
-    claude-code
   ];
-
-  nixpkgs.config.allowUnfree = true;
 
   nixpkgs.hostPlatform = "aarch64-darwin";
 
