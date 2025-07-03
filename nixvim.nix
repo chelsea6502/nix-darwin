@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   enable = true;
 
   globals.mapleader = " ";
@@ -112,7 +113,13 @@
 
     blink-cmp.enable = true;
     blink-cmp.settings.sources = {
-      default = [ "lsp" "path" "buffer" "snippets" "copilot" ];
+      default = [
+        "lsp"
+        "path"
+        "buffer"
+        "snippets"
+        "copilot"
+      ];
 
       providers.copilot = {
         async = true;
@@ -146,8 +153,7 @@
     lsp.servers.nil_ls.settings.nix.maxMemoryMB = 15000;
     lsp.servers.nil_ls.settings.nix.flake.autoArchive = true;
     lsp.servers.nil_ls.settings.nix.flake.autoEvalInputs = true;
-    lsp.servers.nil_ls.settings.formatting.command =
-      [ "${pkgs.nixfmt-rfc-style}/bin/nixfmt" ];
+    lsp.servers.nil_ls.settings.formatting.command = [ "${pkgs.nixfmt-rfc-style}/bin/nixfmt" ];
 
     lsp.servers.clangd.enable = true;
     lsp.servers.clangd.settings.fallbackFlags = [ "-std=c++17" ];
@@ -155,11 +161,14 @@
     telescope.enable = true;
     telescope.extensions.project.enable = true;
 
-    noice.enable = true;
+    #noice.enable = true;
     web-devicons.enable = true;
   };
 
-  extraPlugins = with pkgs.vimPlugins; [ no-neck-pain-nvim gruvbox-material ];
+  extraPlugins = with pkgs.vimPlugins; [
+    no-neck-pain-nvim
+    gruvbox-material
+  ];
 
   extraConfigLua = ''
     vim.cmd("colorscheme gruvbox-material")
