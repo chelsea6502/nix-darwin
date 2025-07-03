@@ -5,7 +5,6 @@
     nodejs
     git
     typescript
-    typescript-language-server
   ];
 
   nixpkgs.hostPlatform = "aarch64-darwin";
