@@ -31,7 +31,6 @@
     autoread = true;
     undofile = true;
     undodir = "/tmp/.vim-undo-dir";
-    backupdir = ".nvim-history";
   };
 
   keymaps = [
@@ -109,13 +108,21 @@
 
     gitsigns.enable = true;
 
-    blink-cmp.settings.keymap.preset = "enter";
-    blink-cmp.settings.completion.documentation.auto_show = true;
-    blink-cmp.settings.signature.enabled = true;
-
-    blink-copilot.enable = true;
-
     blink-cmp.enable = true;
+    blink-cmp.settings.keymap = {
+      "<Tab>" = [
+        "select_next"
+        "fallback"
+      ];
+      "<S-Tab>" = [
+        "select_prev"
+        "fallback"
+      ];
+    };
+    blink-cmp.settings.signature.enabled = true;
+    blink-cmp.settings.completion.documentation.auto_show = true;
+    blink-cmp.settings.completion.list.selection.auto_insert = true;
+    blink-cmp.settings.completion.list.selection.preselect = true;
     blink-cmp.settings.sources = {
       default = [
         "lsp"
@@ -132,6 +139,7 @@
         score_offset = 100;
       };
     };
+    blink-copilot.enable = true;
 
     avante.enable = true;
     avante.settings.hints.enable = false;
