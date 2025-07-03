@@ -126,11 +126,14 @@
     avante.settings.hints.enable = false;
     avante.settings.providers.claude.model = "claude-3-7-sonnet-20250219";
 
-    none-ls.enable = true;
-    lsp-format.enable = true;
-    none-ls.enableLspFormat = true;
-    none-ls.sources.formatting.nixfmt.enable = true;
-    none-ls.sources.formatting.clang_format.enable = true;
+    lsp.onAttach = ''
+      -- Enable formatting on save for all LSP clients
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        callback = function()
+          vim.lsp.buf.format({ async = false })
+        end,
+      })
+    '';
 
     typescript-tools.enable = true;
 
@@ -143,6 +146,11 @@
     lsp.servers.nil_ls.settings.nix.maxMemoryMB = 15000;
     lsp.servers.nil_ls.settings.nix.flake.autoArchive = true;
     lsp.servers.nil_ls.settings.nix.flake.autoEvalInputs = true;
+    lsp.servers.nil_ls.settings.formatting.command =
+      [ "${pkgs.nixfmt-rfc-style}/bin/nixfmt" ];
+
+    lsp.servers.clangd.enable = true;
+    lsp.servers.clangd.settings.fallbackFlags = [ "-std=c++17" ];
 
     telescope.enable = true;
     telescope.extensions.project.enable = true;
