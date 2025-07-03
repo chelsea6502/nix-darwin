@@ -72,6 +72,16 @@
       action = "<cmd>Telescope current_buffer_fuzzy_find theme=dropdown<CR>";
       key = "/";
     }
+    {
+      mode = "n";
+      action = "<cmd>AvanteChat<CR>";
+      key = "<leader>ac";
+    }
+    {
+      mode = "n";
+      action = "<cmd>AvanteChatNew<CR>";
+      key = "<leader>aC";
+    }
   ];
 
   plugins = {
