@@ -108,12 +108,6 @@
     mini.modules.pairs.enable = true;
 
     gitsigns.enable = true;
-    gitsigns.settings.signs.add.text = "▎";
-    gitsigns.settings.signs.change.text = "▎";
-    gitsigns.settings.signs.delete.text = "";
-    gitsigns.settings.signs.topdelete.text = "";
-    gitsigns.settings.signs.changedelete.text = "▎";
-    gitsigns.settings.signs.untracked.text = "▎";
 
     blink-cmp.settings.keymap.preset = "enter";
     blink-cmp.settings.completion.documentation.auto_show = true;
@@ -151,7 +145,6 @@
 
     lsp.enable = true;
     lsp.onAttach = ''
-      -- Enable formatting on save for all LSP clients
       vim.api.nvim_create_autocmd("BufWritePre", {
         callback = function()
           vim.lsp.buf.format({ async = false })
