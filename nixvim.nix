@@ -118,11 +118,15 @@
         "select_prev"
         "fallback"
       ];
+      "<Enter>" = [
+        "accept"
+        "fallback"
+      ];
     };
     blink-cmp.settings.signature.enabled = true;
     blink-cmp.settings.completion.documentation.auto_show = true;
     blink-cmp.settings.completion.list.selection.auto_insert = true;
-    blink-cmp.settings.completion.list.selection.preselect = true;
+    blink-cmp.settings.completion.list.selection.preselect = false;
     blink-cmp.settings.sources = {
       default = [
         "lsp"
