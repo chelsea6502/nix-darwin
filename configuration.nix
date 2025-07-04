@@ -8,6 +8,11 @@
     typescript
   ];
 
+  # install claude code imperitively. not ideal for many reasons
+  system.activationScripts.npmPackages.text = ''
+    ${pkgs.nodejs}/bin/npm install -g claude-code
+  '';
+
   nixpkgs.hostPlatform = "aarch64-darwin";
 
   users.users.chelsea.name = "chelsea";
