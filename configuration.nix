@@ -1,4 +1,5 @@
-{ pkgs, lib, ... }: {
+{ pkgs, ... }:
+{
   environment.systemPackages = with pkgs; [
     nerd-fonts.fira-code
     noto-fonts-emoji
@@ -57,8 +58,7 @@
     enable = true;
     autoEnable = true;
     image = "/Users/chelsea/Downloads/test.jpg";
-    base16Scheme =
-      "${pkgs.base16-schemes}/share/themes/gruvbox-material-dark-medium.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-material-dark-medium.yaml";
 
     fonts.sizes.terminal = 14;
 
@@ -109,7 +109,7 @@
   system.startup.chime = false;
 
   system.defaults = {
-    # show hidden files 
+    # show hidden files
     NSGlobalDomain.AppleShowAllFiles = true;
 
     # trackpad sensitivity
@@ -124,7 +124,7 @@
     # hide files on desktop
     WindowManager.StandardHideDesktopIcons = true;
 
-    # control 
+    # control
     controlcenter.AirDrop = false;
     controlcenter.Bluetooth = false;
     controlcenter.BatteryShowPercentage = true;
