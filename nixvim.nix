@@ -153,8 +153,7 @@
 
     avante.enable = true;
     avante.settings.hints.enabled = false;
-    avante.settings.providers.claude.model = "claude-3-7-sonnet-20250219";
-
+    avante.settings.providers.claude.model = "claude-sonnet-4-20250514";
     typescript-tools.enable = true;
 
     treesitter.enable = true;
