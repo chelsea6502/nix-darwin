@@ -47,7 +47,7 @@
       Ef = "nvim ~/.config/nix-darwin/flake.nix";
       En = "nvim ~/.config/nix-darwin/nixvim.nix";
       switch = "sudo darwin-rebuild switch --flake ~/.config/nix-darwin/";
-      nix-update = "cd ~/.config/nix-darwin/ && nix flake update";
+      nix-update = "nix flake update --directory ~/.config/nix-darwin/";
       nix-clean = "nix-collect-garbage -d && nix-store --optimise";
       nix-verify = "nix-store --verify --check-contents";
       nix-full = "nix-update && switch && nix-clean && nix-verify";
