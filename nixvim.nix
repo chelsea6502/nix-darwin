@@ -64,6 +64,16 @@
     }
     {
       mode = "n";
+      action = "<cmd>Telescope file_browser<CR>";
+      key = "t";
+    }
+    {
+      mode = "n";
+      action = "<cmd>Telescope find_files<CR>";
+      key = "ff";
+    }
+    {
+      mode = "n";
       action = "<cmd>Telescope project<CR>";
       key = "FF";
     }
