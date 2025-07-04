@@ -82,19 +82,21 @@
     onActivation.upgrade = true;
 
     casks = [
-      "google-chrome"
-      "discord"
-      "alacritty"
-      "utm"
-      "telegram"
-      "messenger"
-      "github"
-      "eqmac"
-      "spotify"
-      "microsoft-office"
-      "steam"
+      # Pr*prietary software
       "battle-net"
+      "discord"
+      "google-chrome"
+      "messenger"
+      "microsoft-office"
+      "spotify"
+      "steam"
+
+      # Open Source
+      "alacritty"
+      "eqmac"
       "signal"
+      "telegram"
+      "utm"
       "visual-studio-code"
     ];
   };
@@ -148,7 +150,6 @@
       "/Applications/UTM.app"
       "/Applications/Discord.app"
       "/Applications/Messenger.app"
-      "/Applications/GitHub Desktop.app"
       "/Applications/Alacritty.app"
       "/Applications/Telegram.app"
       "/System/Applications/Messages.app"
