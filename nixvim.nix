@@ -196,6 +196,7 @@
   ];
 
   extraConfigLua = ''
+    vim.deprecate = function() end
     vim.cmd("colorscheme gruvbox-material")
     require("no-neck-pain").setup({
     	autocmds = { enableOnVimEnter = true, skipEnteringNoNeckPainBuffer = true },
