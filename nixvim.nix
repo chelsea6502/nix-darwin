@@ -171,6 +171,7 @@
 
     telescope.enable = true;
     telescope.extensions.project.enable = true;
+    telescope.extensions.file-browser.enable = true;
 
     noice.enable = true;
     web-devicons.enable = true;
