@@ -45,72 +45,58 @@
       key = "<ScrollWheelDown>";
     }
     {
-      mode = "n";
       action = "<cmd>lua vim.lsp.buf.hover()<CR>";
       key = "<leader>a";
     }
     {
-      mode = "n";
       action = "<cmd>lua vim.lsp.buf.type_definition()<CR>";
       key = "<leader>s";
     }
     {
-      mode = "n";
       action = "<cmd>lua vim.diagnostic.open_float()<CR>";
       key = "<leader>d";
     }
     {
-      mode = "n";
       action = "<cmd>lua vim.lsp.buf.code_action()<CR>";
       key = "<leader>f";
     }
     {
-      mode = "n";
       action = "<cmd>Telescope file_browser<CR>";
       key = "ft";
     }
     {
-      mode = "n";
       action = "<cmd>Telescope find_files<CR>";
       key = "ff";
     }
     {
-      mode = "n";
       action = "<cmd>Telescope project<CR>";
       key = "FF";
     }
     {
-      mode = "n";
       action = "<cmd>Telescope current_buffer_fuzzy_find theme=dropdown<CR>";
       key = "/";
     }
     {
-      mode = "n";
       action = "<cmd>AvanteChat<CR>";
       key = "<leader>ac";
     }
     {
-      mode = "n";
       action = "<cmd>AvanteChatNew<CR>";
       key = "<leader>aC";
     }
     {
-      mode = "n";
       action = "<cmd>Gitsigns reset_hunk<CR>";
       key = "<leader>gr";
     }
     {
-      mode = "n";
       action = "<cmd>Gitsigns reset_buffer<CR>";
       key = "<leader>gR";
     }
     {
-      mode = "n";
       action = "<cmd>LazyGit<CR>";
       key = "<leader>gg";
     }
     {
-      mode = "n";
       action = "<cmd>ToggleTerm<CR>";
       key = "t";
     }
