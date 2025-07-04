@@ -166,7 +166,7 @@
     blink-copilot.enable = true;
 
     avante.enable = true;
-    avante.settings.hints.enable = false;
+    avante.settings.hints.enabled = false;
     avante.settings.providers.claude.model = "claude-3-7-sonnet-20250219";
 
     typescript-tools.enable = true;
