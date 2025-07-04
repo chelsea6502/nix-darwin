@@ -32,6 +32,8 @@
       window.padding.y = 14;
     };
 
+    programs.lazygit.enable = true;
+
     # zsh
     programs.zsh.enable = true;
     programs.zsh.initContent = ''
