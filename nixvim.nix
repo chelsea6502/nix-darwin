@@ -5,6 +5,8 @@
   globals.mapleader = " ";
   clipboard.providers.wl-copy.enable = true;
 
+  dependencies.ripgrep.enable = true;
+
   opts = {
     background = "dark";
     tabstop = 2;
@@ -65,7 +67,7 @@
     {
       mode = "n";
       action = "<cmd>Telescope file_browser<CR>";
-      key = "t";
+      key = "ft";
     }
     {
       mode = "n";
@@ -102,6 +104,17 @@
       action = "<cmd>Gitsigns reset_buffer<CR>";
       key = "<leader>gR";
     }
+    {
+      mode = "n";
+      action = "<cmd>LazyGit<CR>";
+      key = "<leader>gg";
+    }
+    {
+      mode = "n";
+      action = "<cmd>ToggleTerm<CR>";
+      key = "t";
+    }
+
   ];
 
   plugins = {
@@ -183,8 +196,16 @@
     telescope.extensions.project.enable = true;
     telescope.extensions.file-browser.enable = true;
 
+    project-nvim.enable = true;
+    project-nvim.settings.manual_mode = false;
+
     noice.enable = true;
     web-devicons.enable = true;
+
+    toggleterm.enable = true;
+    toggleterm.settings.direction = "float";
+
+    lazygit.enable = true;
   };
 
   extraPlugins = with pkgs.vimPlugins; [
