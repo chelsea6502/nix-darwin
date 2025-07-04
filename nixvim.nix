@@ -149,21 +149,18 @@
     blink-cmp.settings.signature.enabled = true;
     blink-cmp.settings.completion.documentation.auto_show = true;
     blink-cmp.settings.completion.list.selection.preselect = false;
-    blink-cmp.settings.sources = {
-      default = [
-        "lsp"
-        "path"
-        "buffer"
-        "snippets"
-        "copilot"
-      ];
-
-      providers.copilot = {
-        async = true;
-        module = "blink-copilot";
-        name = "copilot";
-        score_offset = 100;
-      };
+    blink-cmp.settings.sources.default = [
+      "lsp"
+      "path"
+      "buffer"
+      "snippets"
+      "copilot"
+    ];
+    blink-cmp.settings.sources.providers.copilot = {
+      async = true;
+      module = "blink-copilot";
+      name = "copilot";
+      score_offset = 100;
     };
 
     blink-copilot.enable = true;
