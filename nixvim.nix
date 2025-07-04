@@ -8,7 +8,6 @@
   dependencies.ripgrep.enable = true;
 
   opts = {
-    background = "dark";
     tabstop = 2;
     shiftwidth = 2;
     softtabstop = 2;
@@ -20,17 +19,12 @@
     textwidth = 80;
     relativenumber = true;
     clipboard = "unnamedplus";
-    fillchars.vert = "\\";
     updatetime = 50;
-    ruler = false;
-    showcmd = false;
     laststatus = 0;
     cmdheight = 0;
-    incsearch = true;
     ignorecase = true;
     smartcase = true;
     scrolloff = 10;
-    autoread = true;
     undofile = true;
     undodir = "/tmp/.vim-undo-dir";
   };
