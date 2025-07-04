@@ -8,25 +8,25 @@
   dependencies.ripgrep.enable = true;
 
   opts = {
-    tabstop = 2;
-    shiftwidth = 2;
-    softtabstop = 2;
-    number = true;
-    colorcolumn = "80";
-    cursorline = true;
-    termguicolors = true;
-    virtualedit = "onemore";
-    textwidth = 80;
-    relativenumber = true;
-    clipboard = "unnamedplus";
-    updatetime = 50;
-    laststatus = 0;
-    cmdheight = 0;
-    ignorecase = true;
-    smartcase = true;
-    scrolloff = 10;
-    undofile = true;
-    undodir = "/tmp/.vim-undo-dir";
+    tabstop = 2; # Number of spaces a tab counts for
+    shiftwidth = 2; # Number of spaces for each indentation level
+    softtabstop = 2; # Number of spaces a tab counts for when editing
+    number = true; # Show line numbers
+    colorcolumn = "80"; # Highlight the 80th column
+    cursorline = true; # Highlight the current line
+    termguicolors = true; # Use GUI colors in terminal
+    virtualedit = "onemore"; # Allow cursor to move past the last character
+    textwidth = 80; # Maximum width of text being inserted
+    relativenumber = true; # Show relative line numbers
+    clipboard = "unnamedplus"; # Use system clipboard
+    updatetime = 50; # Time in ms before swap file is written
+    laststatus = 0; # Never show status line
+    cmdheight = 0; # Command line height (0 = hide when not in use)
+    ignorecase = true; # Ignore case in search patterns
+    smartcase = true; # Override ignorecase when pattern has uppercase
+    scrolloff = 10; # Min number of lines to keep above/below cursor
+    undofile = true; # Save undo history to a file
+    undodir = "/tmp/.vim-undo-dir"; # Directory to store undo files
   };
 
   keymaps = [
