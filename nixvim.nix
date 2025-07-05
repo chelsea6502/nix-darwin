@@ -165,6 +165,8 @@
 
     lsp.servers.nil_ls.enable = true;
     lsp.servers.nil_ls.settings.formatting.command = [ "${pkgs.nixfmt-rfc-style}/bin/nixfmt" ];
+    lsp.servers.nil_ls.settings.nix.flake.autoArchive = true;
+    lsp.servers.nil_ls.settings.nix.flake.autoEvalInputs = true;
 
     lsp.servers.clangd.enable = true;
 

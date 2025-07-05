@@ -8,10 +8,10 @@
     typescript
   ];
 
-  # install claude code imperitively. not ideal for many reasons
-  system.activationScripts.npmPackages.text = ''
-    ${pkgs.nodejs}/bin/npm install -g claude-code
-  '';
+  # install claude code imperatively. not ideal for many reasons
+  # system.activationScripts.npmPackages.text = ''
+  #   ${pkgs.nodejs}/bin/npm install -g claude-code
+  # '';
 
   nixpkgs.hostPlatform = "aarch64-darwin";
 
@@ -56,6 +56,8 @@
       switch = "sudo darwin-rebuild switch --flake ~/.config/nix-darwin/";
       nix-update = "nix flake update --flake ~/.config/nix-darwin/";
       nix-clean = "nix-collect-garbage -d && nix-store --optimise";
+      nix-deepclean = "sudo nix-env --delete-generations old --profile
+			/nix/var/nix/profiles/system && nix-clean";
       nix-verify = "nix-store --verify --check-contents --repair";
       nix-full = "nix-update && switch && nix-clean && nix-verify";
     };
@@ -103,6 +105,7 @@
       "telegram"
       "utm"
       "visual-studio-code"
+      "transmission"
     ];
   };
 
