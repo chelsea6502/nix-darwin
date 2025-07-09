@@ -46,9 +46,9 @@
     programs.zellij.settings = {
       pane_frames = false;
       show_startup_tips = false;
-      default_layout = "default";
       hide_session_name = true;
     };
+
     xdg.configFile."zellij/layouts/default.kdl".text = ''
       layout {
         default_tab_template {
@@ -66,11 +66,6 @@
               mode_scroll        "#[fg=#8ec07c,bold]{name}"
               mode_session       "#[fg=#fe8019,bold]{name}"
               mode_move          "#[fg=#a89984,bold]{name}"
-
-              border_enabled     "false"
-              border_char        "─"
-              border_format      "#[fg=#6C7086]{char}"
-              border_position    "top"
 
               hide_frame_for_single_pane "true"
               tab_normal         "#[bg=#6C7086]  {index}  "
