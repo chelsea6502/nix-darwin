@@ -9,8 +9,8 @@
     nixvim.url = "github:nix-community/nixvim/nixos-25.05";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+    zjstatus.url = "github:dj95/zjstatus";
   };
-
   outputs =
     inputs@{
       self,
@@ -20,10 +20,10 @@
       home-manager,
       nixvim,
       nix-homebrew,
+      zjstatus,
     }:
     {
       darwinConfigurations."Chelseas-MacBook-Pro" = nix-darwin.lib.darwinSystem {
-        inherit inputs;
         modules = [
           nix-homebrew.darwinModules.nix-homebrew
           {
@@ -31,6 +31,11 @@
             nix-homebrew.enableRosetta = false;
             nix-homebrew.user = "chelsea";
             system.configurationRevision = self.rev or self.dirtyRev or null;
+            nixpkgs.overlays = [
+              (final: prev: {
+                zjstatus = zjstatus.packages.${prev.system}.default;
+              })
+            ];
           }
           home-manager.darwinModules.home-manager
           stylix.darwinModules.stylix

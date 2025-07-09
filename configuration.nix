@@ -6,6 +6,7 @@
     nodejs
     git
     typescript
+    zjstatus
   ];
 
   # install claude code imperatively. not ideal for many reasons
@@ -19,6 +20,8 @@
   users.users.chelsea.home = "/Users/chelsea";
 
   programs.nixvim = import ./nixvim.nix { inherit pkgs; };
+
+  home-manager.backupFileExtension = ".backup";
 
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
@@ -39,6 +42,46 @@
 
     programs.lazygit.enable = true;
 
+    programs.zellij.enable = true;
+    programs.zellij.settings = {
+      pane_frames = false;
+      show_startup_tips = false;
+      default_layout = "default";
+      hide_session_name = true;
+    };
+    xdg.configFile."zellij/layouts/default.kdl".text = ''
+      layout {
+        default_tab_template {
+          pane size=1 borderless=true {
+            plugin location="file:${pkgs.zjstatus}/bin/zjstatus.wasm" {
+              format_left   "{mode} #[fg=#89B4FA,bold]"
+              format_center "{tabs}"
+
+              mode_normal        ""
+              mode_tmux          "#[bg=#ffc387] {name}"
+              mode_locked        "#[fg=#fb4934,bold]{name}"
+              mode_resize        "#[fg=#fabd2f,bold]{name}"
+              mode_pane          "#[fg=#d3869b,bold]{name}"
+              mode_tab           "#[fg=#83a598,bold]{name}"
+              mode_scroll        "#[fg=#8ec07c,bold]{name}"
+              mode_session       "#[fg=#fe8019,bold]{name}"
+              mode_move          "#[fg=#a89984,bold]{name}"
+
+              border_enabled     "false"
+              border_char        "─"
+              border_format      "#[fg=#6C7086]{char}"
+              border_position    "top"
+
+              hide_frame_for_single_pane "true"
+              tab_normal         "#[bg=#6C7086]  {index}  "
+              tab_active         "#[bg=#9399B2,bold,italic]  {index}  "
+            }
+          }
+          children
+        }
+      }
+    '';
+
     # zsh
     programs.zsh.enable = true;
     programs.zsh.initContent = ''
@@ -58,8 +101,9 @@
       nix-clean = "nix-collect-garbage -d && nix-store --optimise";
       nix-deepclean = "sudo nix-env --delete-generations old --profile
 			/nix/var/nix/profiles/system && nix-clean";
-      nix-verify = "nix-store --verify --check-contents --repair";
+      nix-verify = "sudo nix-store --verify --check-contents --repair";
       nix-full = "nix-update && switch && nix-clean && nix-verify";
+      zellij = "z";
     };
   };
 
