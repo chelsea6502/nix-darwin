@@ -1,11 +1,6 @@
 { pkgs, ... }:
 {
-  enable = true;
-  settings = {
-    pane_frames = false;
-    show_startup_tips = false;
-  };
-  xdg.configFile."zellij/layouts/default.kdl".text = ''
+  text = ''
     keybinds {
       shared_except "locked" {
         bind "Alt 1" { GoToTab 1; }

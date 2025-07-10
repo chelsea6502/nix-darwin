@@ -43,7 +43,18 @@
 
     programs.lazygit.enable = true;
 
-    programs.zellij = import ./zellij.nix { inherit pkgs; };
+    programs.zellij.enable = true;
+    programs.zellij.settings = {
+      pane_frames = false;
+      show_startup_tips = false;
+      #hide_session_name = true;
+    };
+
+    xdg.configFile."zellij/layouts/default.kdl" = import ./zellij.nix {
+      inherit
+        pkgs
+        ;
+    };
 
     # zsh
     programs.zsh.enable = true;
