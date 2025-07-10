@@ -73,6 +73,21 @@
           children
         }
         
+        tab name="neovim" focus=true {
+          pane {
+            command "nvim"
+          }
+        }
+        
+        tab name="terminal" {
+          pane
+        }
+        
+        tab name="lazygit" {
+          pane {
+            command "lazygit"
+          }
+        }
       }
     '';
     # zsh
@@ -93,7 +108,7 @@
       nix-update = "nix flake update --flake ~/.config/nix-darwin/";
       nix-clean = "nix-collect-garbage -d && nix-store --optimise";
       nix-deepclean = "sudo nix-env --delete-generations old --profile
-			/nix/var/nix/profiles/system && nix-clean";
+			/nix/var/nix/profiles/system && sudo nix-clean";
       nix-verify = "sudo nix-store --verify --check-contents --repair";
       nix-full = "nix-update && switch && nix-clean && nix-verify";
       z = "zellij";
