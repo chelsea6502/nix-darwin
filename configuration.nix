@@ -46,7 +46,7 @@
     programs.zellij.settings = {
       pane_frames = false;
       show_startup_tips = false;
-      hide_session_name = true;
+      #hide_session_name = true;
     };
 
     xdg.configFile."zellij/layouts/default.kdl".text = ''

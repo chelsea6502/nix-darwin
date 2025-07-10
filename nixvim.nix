@@ -94,10 +94,15 @@
       action = "<cmd>ToggleTerm<CR>";
       key = "t";
     }
+    {
+      action = "<cmd>WhichKey<CR>";
+      key = "<leader>w";
+    }
 
   ];
 
   plugins = {
+    which-key.enable = true;
 
     indent-blankline.enable = true;
     indent-blankline.settings.indent.char = "▏";
