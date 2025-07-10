@@ -66,8 +66,8 @@
               mode_session       "#[fg=#e78a4e,bold]{name}"
               mode_move          "#[fg=#a89984,bold]{name}"
               hide_frame_for_single_pane "true"
-              tab_normal         "#[bg=#504945,fg=#d4be98]  {index}  "
-              tab_active         "#[bg=#a89984,fg=#282828,bold,italic]  {index}  "
+              tab_normal         "#[fg=#504945]  {index}  "
+              tab_active         "#[fg=#d4be98,bold,italic]  {index}  "
             }
           }
           children
