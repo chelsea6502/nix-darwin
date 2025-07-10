@@ -38,6 +38,7 @@
       window.decorations = "buttonless";
       window.padding.x = 14;
       window.padding.y = 14;
+      window.option_as_alt = "Both";
     };
 
     programs.lazygit.enable = true;
@@ -50,6 +51,20 @@
     };
 
     xdg.configFile."zellij/layouts/default.kdl".text = ''
+      keybinds {
+        shared_except "locked" {
+          bind "Alt 1" { GoToTab 1; }
+          bind "Alt 2" { GoToTab 2; }
+          bind "Alt 3" { GoToTab 3; }
+          bind "Alt 4" { GoToTab 4; }
+          bind "Alt 5" { GoToTab 5; }
+          bind "Alt 6" { GoToTab 6; }
+          bind "Alt 7" { GoToTab 7; }
+          bind "Alt 8" { GoToTab 8; }
+          bind "Alt 9" { GoToTab 9; }
+        }
+      }
+
       layout {
         default_tab_template {
           pane size=1 borderless=true {
@@ -89,8 +104,7 @@
           }
         }
       }
-    '';
-    # zsh
+    ''; # zsh
     programs.zsh.enable = true;
     programs.zsh.initContent = ''
       eval "$(/opt/homebrew/bin/brew shellenv)"
