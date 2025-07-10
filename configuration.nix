@@ -44,10 +44,10 @@
     programs.lazygit.enable = true;
 
     programs.zellij.enable = true;
-    #programs.zellij.settings = {
-    #  pane_frames = false;
-    #  show_startup_tips = false;
-    #};
+    programs.zellij.settings = {
+      pane_frames = false;
+      show_startup_tips = false;
+    };
     xdg.configFile."zellij/config.kdl".source = ./zellij.kdl;
 
     # zsh
