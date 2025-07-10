@@ -54,29 +54,27 @@
         default_tab_template {
           pane size=1 borderless=true {
             plugin location="file:${pkgs.zjstatus}/bin/zjstatus.wasm" {
-              format_left   "{mode} #[fg=#89B4FA,bold]"
+              format_left   "{mode} #[fg=#d4be98,bold]"
               format_center "{tabs}"
-
               mode_normal        ""
-              mode_tmux          "#[bg=#ffc387] {name}"
-              mode_locked        "#[fg=#fb4934,bold]{name}"
-              mode_resize        "#[fg=#fabd2f,bold]{name}"
+              mode_tmux          "#[bg=#d8a657,fg=#282828] {name}"
+              mode_locked        "#[fg=#ea6962,bold]{name}"
+              mode_resize        "#[fg=#d8a657,bold]{name}"
               mode_pane          "#[fg=#d3869b,bold]{name}"
-              mode_tab           "#[fg=#83a598,bold]{name}"
-              mode_scroll        "#[fg=#8ec07c,bold]{name}"
-              mode_session       "#[fg=#fe8019,bold]{name}"
+              mode_tab           "#[fg=#7daea3,bold]{name}"
+              mode_scroll        "#[fg=#a9b665,bold]{name}"
+              mode_session       "#[fg=#e78a4e,bold]{name}"
               mode_move          "#[fg=#a89984,bold]{name}"
-
               hide_frame_for_single_pane "true"
-              tab_normal         "#[bg=#6C7086]  {index}  "
-              tab_active         "#[bg=#9399B2,bold,italic]  {index}  "
+              tab_normal         "#[bg=#504945,fg=#d4be98]  {index}  "
+              tab_active         "#[bg=#a89984,fg=#282828,bold,italic]  {index}  "
             }
           }
           children
         }
+        
       }
     '';
-
     # zsh
     programs.zsh.enable = true;
     programs.zsh.initContent = ''
@@ -98,7 +96,7 @@
 			/nix/var/nix/profiles/system && nix-clean";
       nix-verify = "sudo nix-store --verify --check-contents --repair";
       nix-full = "nix-update && switch && nix-clean && nix-verify";
-      zellij = "z";
+      z = "zellij";
     };
   };
 
@@ -129,7 +127,7 @@
 
     casks = [
       # Pr*prietary software
-      "battle-net"
+      #"battle-net"
       "discord"
       "google-chrome"
       "messenger"
