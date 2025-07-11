@@ -67,7 +67,8 @@
       EC = "Ec && switch";
       ECC = "Ec && nix-full";
       Ef = "nvim ~/.config/nix-darwin/flake.nix";
-      En = "nvim ~/.config/nix-darwin/nixvim.nix";
+      En = "nvim ~/modules/nixvim.nix";
+      Ez = "nvim ~/modules/zellij.nix";
       switch = "sudo darwin-rebuild switch --flake ~/.config/nix-darwin/";
       nix-update = "nix flake update --flake ~/.config/nix-darwin/";
       nix-clean = "nix-collect-garbage -d && nix-store --optimise";
