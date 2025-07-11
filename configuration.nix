@@ -35,10 +35,8 @@
     sops.defaultSopsFile = ./secrets.yaml;
     sops.defaultSopsFormat = "yaml";
     sops.age.keyFile = "/Users/chelsea/.config/sops/age/keys.txt";
-    
-    sops.secrets.anthropic_api_key = {
-      mode = "0400";
-    };
+
+    sops.secrets.anthropic_api_key.mode = "0400";
 
     # Alacritty
     programs.alacritty.enable = true;
@@ -84,6 +82,7 @@
       Ef = "nvim ~/.config/nix-darwin/flake.nix";
       En = "nvim ~/modules/nixvim.nix";
       Ez = "nvim ~/modules/zellij.nix";
+      Es = "nvim ~/.config/nix-darwin/secrets.yaml"; 
       switch = "sudo darwin-rebuild switch --flake ~/.config/nix-darwin/";
       nix-update = "nix flake update --flake ~/.config/nix-darwin/";
       nix-clean = "nix-collect-garbage -d && nix-store --optimise";
