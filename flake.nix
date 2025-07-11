@@ -58,6 +58,11 @@
           stylix.darwinModules.stylix
           nixvim.nixDarwinModules.nixvim
           sops-nix.darwinModules.sops
+          {
+            home-manager.sharedModules = [
+              sops-nix.homeManagerModules.sops
+            ];
+          }
           ./configuration.nix
         ];
       };

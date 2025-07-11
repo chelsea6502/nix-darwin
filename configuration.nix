@@ -31,6 +31,15 @@
     programs.home-manager.enable = true;
     home.stateVersion = "25.05";
 
+    # SOPS configuration
+    sops.defaultSopsFile = ./secrets.yaml;
+    sops.defaultSopsFormat = "yaml";
+    sops.age.keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
+    
+    sops.secrets.anthropic_api_key = {
+      mode = "0400";
+    };
+
     # Alacritty
     programs.alacritty.enable = true;
     programs.alacritty.settings = {
@@ -61,7 +70,7 @@
     programs.zsh.initContent = ''
       eval "$(/opt/homebrew/bin/brew shellenv)"
       export PROMPT="%F{green}%F{blue}%~%f $ "
-      export ANTHROPIC_API_KEY="$(cat /run/secrets/anthropic_api_key 2>/dev/null || echo "")"
+      export ANTHROPIC_API_KEY="$(cat ~/.config/sops-nix/secrets/anthropic_api_key 2>/dev/null || echo "")"
     '';
     programs.zsh.syntaxHighlighting.enable = true;
     programs.zsh.shellAliases = {
@@ -187,17 +196,6 @@
   };
 
   security.pam.services.sudo_local.touchIdAuth = true;
-
-  # SOPS configuration
-  sops.defaultSopsFile = /Users/chelsea/.config/nix-darwin/secrets.yaml;
-  sops.defaultSopsFormat = "yaml";
-  sops.age.keyFile = "/Users/chelsea/.config/sops/age/keys.txt";
-  
-  sops.secrets.anthropic_api_key = {
-    owner = "chelsea";
-    group = "staff";
-    mode = "0400";
-  };
 
   services.aerospace.enable = true;
   services.aerospace.settings.gaps.inner.horizontal = 8;
