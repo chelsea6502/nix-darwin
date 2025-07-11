@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, nix-modules, ... }:
 {
   environment.systemPackages = with pkgs; [
     nerd-fonts.fira-code
@@ -19,7 +19,7 @@
   users.users.chelsea.name = "chelsea";
   users.users.chelsea.home = "/Users/chelsea";
 
-  programs.nixvim = import ./modules/nixvim.nix { inherit pkgs; };
+  programs.nixvim = import "${nix-modules}/nixvim.nix" { inherit pkgs; };
 
   home-manager.backupFileExtension = ".backup";
 
@@ -50,7 +50,7 @@
       #hide_session_name = true;
     };
 
-    xdg.configFile."zellij/layouts/default.kdl" = import ./modules/zellij.nix {
+    xdg.configFile."zellij/layouts/default.kdl" = import "${nix-modules}/zellij.nix" {
       inherit pkgs;
     };
 

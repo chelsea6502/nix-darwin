@@ -10,6 +10,10 @@
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
     zjstatus.url = "github:dj95/zjstatus";
+    nix-modules = {
+      url = "github:chelsea6502/nix-modules";
+      flake = false;
+    };
   };
   outputs =
     inputs@{
@@ -21,9 +25,11 @@
       nixvim,
       nix-homebrew,
       zjstatus,
+      nix-modules,
     }:
     {
       darwinConfigurations."Chelseas-MacBook-Pro" = nix-darwin.lib.darwinSystem {
+        specialArgs = { inherit nix-modules; };
         modules = [
           nix-homebrew.darwinModules.nix-homebrew
           {

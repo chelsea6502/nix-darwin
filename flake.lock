@@ -314,6 +314,18 @@
         "type": "github"
       }
     },
+    "nix-modules": {
+      "flake": false,
+      "locked": {
+        "path": "./modules",
+        "type": "path"
+      },
+      "original": {
+        "path": "./modules",
+        "type": "path"
+      },
+      "parent": []
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1752185033,
@@ -440,6 +452,7 @@
         "home-manager": "home-manager",
         "nix-darwin": "nix-darwin",
         "nix-homebrew": "nix-homebrew",
+        "nix-modules": "nix-modules",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
         "stylix": "stylix",
