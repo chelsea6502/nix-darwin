@@ -51,9 +51,7 @@
     };
 
     xdg.configFile."zellij/layouts/default.kdl" = import ./modules/zellij.nix {
-      inherit
-        pkgs
-        ;
+      inherit pkgs;
     };
 
     # zsh
