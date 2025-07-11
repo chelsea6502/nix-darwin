@@ -71,7 +71,10 @@
       eval "$(/opt/homebrew/bin/brew shellenv)"
       export PROMPT="%F{green}%F{blue}%~%f $ "
       export ANTHROPIC_API_KEY="$(cat ~/.config/sops-nix/secrets/anthropic_api_key 2>/dev/null || echo "")"
+      export SOPS_AGE_KEY_FILE="/Users/chelsea/.config/sops/age/keys.txt"
+      export EDITOR="nvim"
     '';
+
     programs.zsh.syntaxHighlighting.enable = true;
     programs.zsh.shellAliases = {
       edit = "nvim";
