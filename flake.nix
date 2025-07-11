@@ -20,6 +20,9 @@
     nix-modules.url = "github:chelsea6502/nix-modules";
     #nix-modules.url = "path:/Users/chelsea/modules"; # dev mode
     nix-modules.flake = false;
+
+    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -33,6 +36,7 @@
       nix-homebrew,
       zjstatus,
       nix-modules,
+      sops-nix,
     }:
     {
       darwinConfigurations."Chelseas-MacBook-Pro" = nix-darwin.lib.darwinSystem {
@@ -53,6 +57,7 @@
           home-manager.darwinModules.home-manager
           stylix.darwinModules.stylix
           nixvim.nixDarwinModules.nixvim
+          sops-nix.darwinModules.sops
           ./configuration.nix
         ];
       };

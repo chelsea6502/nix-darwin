@@ -7,12 +7,14 @@
     git
     typescript
     zjstatus
+    sops
+    age
   ];
 
   # install claude code imperatively. not ideal for many reasons
-  # system.activationScripts.npmPackages.text = ''
-  #   ${pkgs.nodejs}/bin/npm install -g claude-code
-  # '';
+  system.activationScripts.npmPackages.text = ''
+    ${pkgs.nodejs}/bin/npm install -g claude-code
+  '';
 
   nixpkgs.hostPlatform = "aarch64-darwin";
 
@@ -59,6 +61,7 @@
     programs.zsh.initContent = ''
       eval "$(/opt/homebrew/bin/brew shellenv)"
       export PROMPT="%F{green}%F{blue}%~%f $ "
+      export ANTHROPIC_API_KEY="$(cat /run/secrets/anthropic_api_key 2>/dev/null || echo "")"
     '';
     programs.zsh.syntaxHighlighting.enable = true;
     programs.zsh.shellAliases = {
@@ -184,6 +187,17 @@
   };
 
   security.pam.services.sudo_local.touchIdAuth = true;
+
+  # SOPS configuration
+  sops.defaultSopsFile = /Users/chelsea/.config/nix-darwin/secrets.yaml;
+  sops.defaultSopsFormat = "yaml";
+  sops.age.keyFile = "/Users/chelsea/.config/sops/age/keys.txt";
+  
+  sops.secrets.anthropic_api_key = {
+    owner = "chelsea";
+    group = "staff";
+    mode = "0400";
+  };
 
   services.aerospace.enable = true;
   services.aerospace.settings.gaps.inner.horizontal = 8;
