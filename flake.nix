@@ -12,6 +12,7 @@
     zjstatus.url = "github:dj95/zjstatus";
     nix-modules = {
       url = "github:chelsea6502/nix-modules";
+      #url = "path:/Users/chelsea/modules"; # dev mode
       flake = false;
     };
   };

@@ -317,17 +317,14 @@
     "nix-modules": {
       "flake": false,
       "locked": {
-        "lastModified": 1752201731,
-        "narHash": "sha256-z7R7rR50uZcHehZRs8F76SL44OMdvFmcqivqHgppgH4=",
-        "owner": "chelsea6502",
-        "repo": "nix-modules",
-        "rev": "fbc15174bfc6c6c4b30d73565d79fda7b20d0d6e",
-        "type": "github"
+        "lastModified": 1752203262,
+        "narHash": "sha256-EGQfAyPS8dYtsFKI5BltqwQPYxyQbzilTDICLOUg6Yk=",
+        "path": "/Users/chelsea/modules",
+        "type": "path"
       },
       "original": {
-        "owner": "chelsea6502",
-        "repo": "nix-modules",
-        "type": "github"
+        "path": "/Users/chelsea/modules",
+        "type": "path"
       }
     },
     "nixpkgs": {
