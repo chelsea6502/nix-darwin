@@ -34,7 +34,7 @@
     # SOPS configuration
     sops.defaultSopsFile = ./secrets.yaml;
     sops.defaultSopsFormat = "yaml";
-    sops.age.keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
+    sops.age.keyFile = "/Users/chelsea/.config/sops/age/keys.txt";
     
     sops.secrets.anthropic_api_key = {
       mode = "0400";
