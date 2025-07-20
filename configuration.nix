@@ -10,7 +10,7 @@
     typescript
     zjstatus
     sops
-    age
+    docker
   ];
 
   homebrew = {
@@ -58,6 +58,7 @@
     sops.defaultSopsFormat = "yaml";
     sops.age.keyFile = "/Users/chelsea/.config/sops/age/keys.txt";
     sops.secrets.anthropic_api_key.mode = "0400";
+    sops.secrets.github_api_key.mode = "0400";
 
     # Alacritty
     programs.alacritty.enable = true;
@@ -132,6 +133,10 @@
   nix.optimise.automatic = true;
   nix.gc.automatic = true;
   nix.gc.options = "--delete-older-than 7d";
+
+  nix.extraOptions = ''
+    		access-tokens = github.com=$(cat ~/.config/sops-nix/secrets/github_api_key 2>/dev/null || echo "")
+    	'';
 
   nix.settings.max-jobs = 8;
   nix.settings.experimental-features = "nix-command flakes";
