@@ -32,25 +32,19 @@
       modules = [
         inputs.nix-homebrew.darwinModules.nix-homebrew
         {
-          nix-homebrew.enable = true;
-          nix-homebrew.enableRosetta = false;
-          nix-homebrew.user = "chelsea";
           system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
           nixpkgs.overlays = [
             (final: prev: {
               zjstatus = inputs.zjstatus.packages.${prev.system}.default;
             })
           ];
-        }
-        inputs.home-manager.darwinModules.home-manager
-        inputs.stylix.darwinModules.stylix
-        inputs.nixvim.nixDarwinModules.nixvim
-        inputs.sops-nix.darwinModules.sops
-        {
           home-manager.sharedModules = [
             inputs.sops-nix.homeManagerModules.sops
           ];
         }
+        inputs.home-manager.darwinModules.home-manager
+        inputs.stylix.darwinModules.stylix
+        inputs.nixvim.nixDarwinModules.nixvim
         ./configuration.nix
       ];
     };

@@ -13,6 +13,10 @@
     docker
   ];
 
+  nix-homebrew.enable = true;
+  nix-homebrew.enableRosetta = false;
+  nix-homebrew.user = "chelsea";
+
   homebrew = {
     enable = true;
 
@@ -133,10 +137,6 @@
   nix.optimise.automatic = true;
   nix.gc.automatic = true;
   nix.gc.options = "--delete-older-than 7d";
-
-  nix.extraOptions = ''
-    		access-tokens = github.com=$(cat ~/.config/sops-nix/secrets/github_api_key 2>/dev/null || echo "")
-    	'';
 
   nix.settings.max-jobs = 8;
   nix.settings.experimental-features = "nix-command flakes";

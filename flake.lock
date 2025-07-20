@@ -317,8 +317,8 @@
     "nix-modules": {
       "flake": false,
       "locked": {
-        "lastModified": 1752987544,
-        "narHash": "sha256-MsRfI++0cYYjhHzgmtz01qd1Pn1rkSeF4L58zmhl/ok=",
+        "lastModified": 1752989834,
+        "narHash": "sha256-GS+2hzs+BPeqjYq22ALxPG/FHNZstlMZIngIOw5jw94=",
         "path": "/Users/chelsea/modules",
         "type": "path"
       },
