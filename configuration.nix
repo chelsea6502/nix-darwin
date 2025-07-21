@@ -17,33 +17,25 @@
   nix-homebrew.enableRosetta = false;
   nix-homebrew.user = "chelsea";
 
-  homebrew = {
-    enable = true;
+  homebrew.enable = true;
 
-    onActivation.autoUpdate = true;
-    onActivation.cleanup = "uninstall";
-    onActivation.upgrade = true;
+  homebrew.onActivation.autoUpdate = true;
+  homebrew.onActivation.cleanup = "uninstall";
+  homebrew.onActivation.upgrade = true;
 
-    casks = [
-      # Pr*prietary software
-      #"battle-net"
-      "discord"
-      "google-chrome"
-      "messenger"
-      "microsoft-office"
-      "spotify"
-      "steam"
+  homebrew.casks = [
+    # Pr*prietary software
+    #"battle-net"
+    "discord"
+    "messenger"
+    "microsoft-office"
 
-      # Open Source
-      "alacritty"
-      "eqmac"
-      "signal"
-      "telegram"
-      "utm"
-      "visual-studio-code"
-      "transmission"
-    ];
-  };
+    # Open Source
+    "alacritty"
+    "eqmac"
+    "telegram"
+    "vscodium"
+  ];
 
   users.users.chelsea.name = "chelsea";
   users.users.chelsea.home = "/Users/chelsea";
@@ -75,6 +67,11 @@
       window.padding.y = 14;
       window.option_as_alt = "Both";
     };
+
+    programs.qutebrowser.enable = true;
+    programs.qutebrowser.settings.tabs.show = "multiple";
+    programs.qutebrowser.settings.statusbar.show = "in-mode";
+    programs.qutebrowser.settings.content.javascript.clipboard = "access-paste";
 
     programs.lazygit.enable = true;
 
@@ -176,11 +173,8 @@
 
     dock.show-recents = false;
     dock.persistent-apps = [
-      "/Applications/Spotify.app"
       "/Applications/Safari.app"
       "/System/Applications/Notes.app"
-      "/Applications/Google Chrome.app"
-      "/Applications/UTM.app"
       "/Applications/Discord.app"
       "/Applications/Messenger.app"
       "/Applications/Alacritty.app"

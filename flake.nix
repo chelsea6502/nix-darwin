@@ -11,15 +11,15 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     nixvim.url = "github:nix-community/nixvim";
-    #nixvim.url = "github:chelsea6502/nixvim";
+    #nixvim.url = "github:chelsea6502/nixvim"; # dev mode
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
 
     zjstatus.url = "github:dj95/zjstatus";
 
-    #nix-modules.url = "github:chelsea6502/nix-modules";
-    nix-modules.url = "path:/Users/chelsea/modules"; # dev mode
+    nix-modules.url = "github:chelsea6502/nix-modules";
+    #nix-modules.url = "path:/Users/chelsea/modules"; # dev mode
     nix-modules.flake = false;
 
     sops-nix.url = "github:Mic92/sops-nix";
@@ -31,6 +31,9 @@
       specialArgs = { inherit (inputs) nix-modules; };
       modules = [
         inputs.nix-homebrew.darwinModules.nix-homebrew
+        inputs.home-manager.darwinModules.home-manager
+        inputs.stylix.darwinModules.stylix
+        inputs.nixvim.nixDarwinModules.nixvim
         {
           system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
           nixpkgs.overlays = [
@@ -42,9 +45,6 @@
             inputs.sops-nix.homeManagerModules.sops
           ];
         }
-        inputs.home-manager.darwinModules.home-manager
-        inputs.stylix.darwinModules.stylix
-        inputs.nixvim.nixDarwinModules.nixvim
         ./configuration.nix
       ];
     };

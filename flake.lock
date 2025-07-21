@@ -233,11 +233,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1752780124,
-        "narHash": "sha256-5dn97vIYxn6VozKePOQSDxVCsrl38nDdMJXx86KIJH0=",
+        "lastModified": 1753055804,
+        "narHash": "sha256-KerePGJYX47ex6OY3CWsid4AltO2gDtQROunYJ0eCEE=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "c718918222bdb104397762dea67e6b397a7927fe",
+        "rev": "adf195f021a8cbb0c317f75b52e96c82616526f9",
         "type": "github"
       },
       "original": {
@@ -317,23 +317,26 @@
     "nix-modules": {
       "flake": false,
       "locked": {
-        "lastModified": 1752989834,
-        "narHash": "sha256-GS+2hzs+BPeqjYq22ALxPG/FHNZstlMZIngIOw5jw94=",
-        "path": "/Users/chelsea/modules",
-        "type": "path"
+        "lastModified": 1752984907,
+        "narHash": "sha256-vwqgAO8QhDOTrHJl8HK+vCRP29lDgiFffGOFd5Ny7TE=",
+        "owner": "chelsea6502",
+        "repo": "nix-modules",
+        "rev": "35c4af72b3a54e3e4f1e8db3ee392f0424a7bfb9",
+        "type": "github"
       },
       "original": {
-        "path": "/Users/chelsea/modules",
-        "type": "path"
+        "owner": "chelsea6502",
+        "repo": "nix-modules",
+        "type": "github"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1752946745,
-        "narHash": "sha256-e6TZD9b7wK1Gl6mMwTDL1qnuhTKs5ziClz30p8M8BOA=",
+        "lastModified": 1753041082,
+        "narHash": "sha256-V74pRjja6Uk5Iyi2BkpUtd8cDaLKQ5ibaMJKPlMmpOc=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "da77d74e497e9bfeb03951d76892225084f6509f",
+        "rev": "acf97ae12ad17415dffd3fdbf646213ddd20f922",
         "type": "github"
       },
       "original": {
@@ -520,11 +523,11 @@
         "tinted-zed": "tinted-zed"
       },
       "locked": {
-        "lastModified": 1752962561,
-        "narHash": "sha256-45R7e+u63LcrSuq/zseu6aWdzwmxr06pR89JRJ0XJdM=",
+        "lastModified": 1753056092,
+        "narHash": "sha256-n/rLPPE6Ij5VV7jZNE1wc8QB9QlUqeCPWQdEcBxiz6U=",
         "owner": "danth",
         "repo": "stylix",
-        "rev": "249f2686ea8a3452ec102f3754f97e238e55af18",
+        "rev": "fdd0882904a58e88e274ad87c56f2ee410ae1d84",
         "type": "github"
       },
       "original": {
