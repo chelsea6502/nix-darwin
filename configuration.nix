@@ -26,15 +26,17 @@
   homebrew.casks = [
     # Pr*prietary software
     #"battle-net"
-    "discord"
-    "messenger"
     "microsoft-office"
+    "messenger"
+    "google-chrome"
+    "microsoft-teams"
 
     # Open Source
     "alacritty"
     "eqmac"
-    "telegram"
     "vscodium"
+    "ferdium"
+    "qutebrowser"
   ];
 
   users.users.chelsea.name = "chelsea";
@@ -175,10 +177,8 @@
     dock.persistent-apps = [
       "/Applications/Safari.app"
       "/System/Applications/Notes.app"
-      "/Applications/Discord.app"
-      "/Applications/Messenger.app"
+      "/Applications/Ferdium.app"
       "/Applications/Alacritty.app"
-      "/Applications/Telegram.app"
       "/System/Applications/Messages.app"
       "/System/Applications/Mail.app"
     ];

@@ -39,6 +39,8 @@
           nixpkgs.overlays = [
             (final: prev: {
               zjstatus = inputs.zjstatus.packages.${prev.system}.default;
+              # Fix for missing dockerfile-language-server
+              dockerfile-language-server = prev.docker-language-server;
             })
           ];
           home-manager.sharedModules = [
