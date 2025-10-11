@@ -8,7 +8,6 @@
     nodejs
     git
     typescript
-    zjstatus
     sops
     docker
   ];
@@ -25,7 +24,6 @@
 
   homebrew.casks = [
     # Pr*prietary software
-    #"battle-net"
     "microsoft-office"
     "messenger"
     "google-chrome"
@@ -77,14 +75,6 @@
 
     programs.lazygit.enable = true;
 
-    programs.zellij.enable = true;
-    programs.zellij.settings.pane_frames = false;
-    programs.zellij.settings.show_startup_tips = false;
-
-    xdg.configFile."zellij/layouts/default.kdl" = import "${nix-modules}/zellij.nix" {
-      inherit pkgs;
-    };
-
     programs.zsh.enable = true;
     programs.zsh.initContent = ''
       eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -102,8 +92,6 @@
       ECC = "Ec && nix-full";
       Ef = "nvim ~/.config/nix-darwin/flake.nix";
       En = "nvim ~/modules/nixvim.nix";
-      Ez = "nvim ~/modules/zellij.nix";
-      Es = "nvim ~/.config/nix-darwin/secrets.yaml";
       switch = "sudo darwin-rebuild switch --flake ~/.config/nix-darwin/";
       nix-update = "nix flake update --flake ~/.config/nix-darwin/";
       nix-clean = "nix-collect-garbage -d && nix-store --optimise";
