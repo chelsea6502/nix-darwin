@@ -96,11 +96,23 @@
       switch = "sudo darwin-rebuild switch --flake ~/.config/nix-darwin/";
       nix-update = "nix flake update --flake ~/.config/nix-darwin/";
       nix-clean = "nix-collect-garbage -d && nix-store --optimise";
-      nix-deepclean = "sudo nix-env --delete-generations old --profile
-			/nix/var/nix/profiles/system && sudo nix-clean";
+      nix-deepclean = "sudo nix-env --delete-generations old --profile /nix/var/nix/profiles/system && sudo nix-clean";
       nix-verify = "sudo nix-store --verify --check-contents --repair";
       nix-full = "nix-update && switch && nix-clean && nix-verify";
       z = "zellij";
+
+      pydev = "${
+        pkgs.writeShellScriptBin "pydev" ''
+          export PATH="${pkgs.python3}/bin:${pkgs.python3Packages.pip}/bin:${pkgs.python3Packages.virtualenv}/bin:$PATH"
+          [ ! -f "requirements.txt" ] && exec ${pkgs.zsh}/bin/zsh
+          if [ ! -d ".venv" ]; then
+            ${pkgs.python3Packages.virtualenv}/bin/virtualenv .venv
+          fi
+          source .venv/bin/activate
+          pip install -q -r requirements.txt
+          exec ${pkgs.zsh}/bin/zsh
+        ''
+      }/bin/pydev";
     };
   };
 
