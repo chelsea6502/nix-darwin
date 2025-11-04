@@ -26,16 +26,18 @@
   homebrew.casks = [
     # Pr*prietary software
     "microsoft-office"
-    "messenger"
     "google-chrome"
     "microsoft-teams"
+    "wifi-explorer"
 
     # Open Source
     "alacritty"
     "eqmac"
     "vscodium"
     "ferdium"
-    "qutebrowser"
+    # "qutebrowser"
+    "anki"
+    # "gopeed"
   ];
 
   users.users.chelsea.name = "chelsea";
@@ -99,20 +101,19 @@
       nix-deepclean = "sudo nix-env --delete-generations old --profile /nix/var/nix/profiles/system && sudo nix-clean";
       nix-verify = "sudo nix-store --verify --check-contents --repair";
       nix-full = "nix-update && switch && nix-clean && nix-verify";
+      nix-fix = "sudo mv /etc/zshrc /etc/zshrc.before-nix-darwin && sudo mv /etc/zprofile /etc/zprofile.before-nix-darwin && sudo darwin-rebuild switch --flake ~/.config/nix-darwin/";
       z = "zellij";
 
-      pydev = "${
-        pkgs.writeShellScriptBin "pydev" ''
-          export PATH="${pkgs.python3}/bin:${pkgs.python3Packages.pip}/bin:${pkgs.python3Packages.virtualenv}/bin:$PATH"
-          [ ! -f "requirements.txt" ] && exec ${pkgs.zsh}/bin/zsh
-          if [ ! -d ".venv" ]; then
-            ${pkgs.python3Packages.virtualenv}/bin/virtualenv .venv
-          fi
-          source .venv/bin/activate
-          pip install -q -r requirements.txt
-          exec ${pkgs.zsh}/bin/zsh
-        ''
-      }/bin/pydev";
+      pydev = "${pkgs.writeShellScriptBin "pydev" ''
+        export PATH="${pkgs.python3}/bin:${pkgs.python3Packages.pip}/bin:${pkgs.python3Packages.virtualenv}/bin:$PATH"
+        [ ! -f "requirements.txt" ] && exec ${pkgs.zsh}/bin/zsh
+        if [ ! -d ".venv" ]; then
+          ${pkgs.python3Packages.virtualenv}/bin/virtualenv .venv
+        fi
+        source .venv/bin/activate
+        pip install -q -r requirements.txt
+        exec ${pkgs.zsh}/bin/zsh
+      ''}/bin/pydev";
     };
   };
 
