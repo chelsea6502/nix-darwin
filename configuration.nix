@@ -4,13 +4,15 @@
 
   environment.systemPackages = with pkgs; [
     nerd-fonts.fira-code
-    noto-fonts-emoji
+    noto-fonts-color-emoji
     nodejs
     git
     typescript
     sops
     docker
     cachix
+    qmk
+    yarn
   ];
 
   nix-homebrew.enable = true;
@@ -29,6 +31,7 @@
     "google-chrome"
     "microsoft-teams"
     "wifi-explorer"
+    # "parallels"  # Install manually from parallels.com - Homebrew installation fails due to macOS permission restrictions
 
     # Open Source
     "alacritty"
@@ -111,12 +114,13 @@
           ${pkgs.python3Packages.virtualenv}/bin/virtualenv .venv
         fi
         source .venv/bin/activate
+        pip install -q --upgrade pip
         pip install -q -r requirements.txt
         exec ${pkgs.zsh}/bin/zsh
       ''}/bin/pydev";
     };
-  };
 
+  };
   stylix = {
     enable = true;
     autoEnable = true;
@@ -131,7 +135,7 @@
     fonts.sansSerif.name = "Open Sans";
     fonts.monospace.package = pkgs.nerd-fonts.fira-code;
     fonts.monospace.name = "FiraCode Nerd Font Mono";
-    fonts.emoji.package = pkgs.noto-fonts-emoji;
+    fonts.emoji.package = pkgs.noto-fonts-color-emoji;
     fonts.emoji.name = "Noto Color Emoji";
   };
 
