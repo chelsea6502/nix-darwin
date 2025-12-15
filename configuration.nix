@@ -34,9 +34,7 @@
     "vscodium"
     "ferdium"
     "chromium"
-    # "qutebrowser"
     "anki"
-    # "gopeed"
   ];
 
   users.users.chelsea.name = "chelsea";
@@ -148,11 +146,11 @@
       indent-blankline.enable = true;
       indent-blankline.settings.indent.char = "▏";
       indent-blankline.settings.scope.enabled = false;
+
       mini.enable = true;
       mini.modules.indentscope.symbol = "▏";
       mini.modules.indentscope.options.try_as_border = true;
       mini.modules.indentscope.draw.delay = 0;
-
       mini.modules.pairs.enable = true;
 
       gitsigns.enable = true;
@@ -260,6 +258,17 @@
       export ANTHROPIC_API_KEY="$(cat ~/.config/sops-nix/secrets/anthropic_api_key 2>/dev/null || echo "")"
       export SOPS_AGE_KEY_FILE="/Users/chelsea/.config/sops/age/keys.txt"
       export EDITOR="nvim"
+
+      # Auto-activate Python venvs
+      auto_venv() {
+        if [[ -f ".venv/bin/activate" ]]; then
+          [[ "$VIRTUAL_ENV" != "$PWD/.venv" ]] && source .venv/bin/activate
+        elif [[ -n "$VIRTUAL_ENV" ]]; then
+          deactivate
+        fi
+      }
+      add-zsh-hook chpwd auto_venv
+      auto_venv  # run on shell start
     '';
 
     programs.zsh.syntaxHighlighting.enable = true;
@@ -279,17 +288,7 @@
       nix-fix = "sudo mv /etc/zshrc /etc/zshrc.before-nix-darwin && sudo mv /etc/zprofile /etc/zprofile.before-nix-darwin && sudo darwin-rebuild switch --flake ~/.config/nix-darwin/";
       z = "zellij";
 
-      pydev = "${pkgs.writeShellScriptBin "pydev" ''
-        export PATH="${pkgs.python3}/bin:${pkgs.python3Packages.pip}/bin:${pkgs.python3Packages.virtualenv}/bin:$PATH"
-        [ ! -f "requirements.txt" ] && exec ${pkgs.zsh}/bin/zsh
-        if [ ! -d ".venv" ]; then
-          ${pkgs.python3Packages.virtualenv}/bin/virtualenv .venv
-        fi
-        source .venv/bin/activate
-        pip install -q --upgrade pip
-        pip install -q -r requirements.txt
-        exec ${pkgs.zsh}/bin/zsh
-      ''}/bin/pydev";
+      pydev = "${pkgs.uv}/bin/uv venv && source .venv/bin/activate && ${pkgs.uv}/bin/uv pip install -r requirements.txt";
     };
 
   };
