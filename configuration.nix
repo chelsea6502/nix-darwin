@@ -1,4 +1,4 @@
-{ pkgs, nix-modules, ... }:
+{ pkgs, ... }:
 {
   nixpkgs.hostPlatform = "aarch64-darwin";
 
@@ -26,7 +26,7 @@
     # Pr*prietary software
     "microsoft-office"
     "microsoft-teams"
-    # "parallels"  # Install manually from parallels.com - Homebrew installation fails due to macOS permission restrictions
+    # "parallels"  # needs manual install
 
     # Open Source
     "alacritty"
@@ -182,10 +182,6 @@
         "snippets"
       ];
 
-      avante.enable = true;
-      avante.settings.hints.enabled = false;
-      avante.settings.providers.claude.model = "claude-sonnet-4-20250514";
-
       typescript-tools.enable = true;
 
       treesitter.enable = true;
@@ -219,15 +215,9 @@
       no-neck-pain.settings.buffers.wo.fillchars = "vert: ,eob: ";
     };
 
-    # colorschemes.gruvbox-material.enable = true;
+    colorschemes.gruvbox-material.enable = true;
+    extraConfigLua = ''vim.cmd("colorscheme gruvbox-material") '';
 
-    extraPlugins = with pkgs.vimPlugins; [ gruvbox-material ];
-
-    # Nui and Avante are old versions
-    extraConfigLua = ''
-      vim.deprecate = function() end
-      vim.cmd("colorscheme gruvbox-material")
-    '';
   };
 
   home-manager.backupFileExtension = ".backup";
