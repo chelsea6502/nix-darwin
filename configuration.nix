@@ -3,8 +3,6 @@
   nixpkgs.hostPlatform = "aarch64-darwin";
 
   environment.systemPackages = with pkgs; [
-    nerd-fonts.fira-code
-    noto-fonts-color-emoji
     nodejs
     git
     typescript
@@ -12,7 +10,6 @@
     docker
     cachix
     qmk
-    yarn
   ];
 
   nix-homebrew.enable = true;
@@ -28,9 +25,7 @@
   homebrew.casks = [
     # Pr*prietary software
     "microsoft-office"
-    "google-chrome"
     "microsoft-teams"
-    "wifi-explorer"
     # "parallels"  # Install manually from parallels.com - Homebrew installation fails due to macOS permission restrictions
 
     # Open Source
@@ -38,6 +33,7 @@
     "eqmac"
     "vscodium"
     "ferdium"
+    "chromium"
     # "qutebrowser"
     "anki"
     # "gopeed"
@@ -50,7 +46,6 @@
     enable = true;
 
     globals.mapleader = " ";
-    clipboard.providers.wl-copy.enable = true;
 
     dependencies.ripgrep.enable = true;
 
@@ -90,7 +85,7 @@
         key = "<leader>a";
       }
       {
-        action = "<cmd>lua vim.lsp.buf.type_definition()<CR>";
+        action = "<cmd>lua vim.lsp.buf./type_definition()<CR>";
         key = "<leader>s";
       }
       {
@@ -185,18 +180,8 @@
         "path"
         "buffer"
         "snippets"
-        # "copilot"
       ];
-      # blink-cmp.settings.sources.providers.copilot = {
-      # async = true;
-      # module = "blink-copilot";
-      # name = "copilot";
-      # score_offset = 100;
-      # };
 
-      # blink-copilot.enable = true;
-
-      # aider-nvim.enable = true;
       avante.enable = true;
       avante.settings.hints.enabled = false;
       avante.settings.providers.claude.model = "claude-sonnet-4-20250514";
