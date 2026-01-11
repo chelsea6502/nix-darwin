@@ -10,6 +10,7 @@
     docker
     cachix
     qmk
+    postgresql
   ];
 
   nix-homebrew.enable = true;
@@ -26,6 +27,8 @@
     # Pr*prietary software
     "microsoft-office"
     "microsoft-teams"
+    "affinity"
+    "google-chrome"
     # "parallels"  # needs manual install
 
     # Open Source
@@ -33,8 +36,8 @@
     "eqmac"
     "vscodium"
     "ferdium"
-    "chromium"
     "anki"
+    "pgadmin4"
   ];
 
   users.users.chelsea.name = "chelsea";
@@ -332,35 +335,64 @@
   system.startup.chime = false;
 
   system.defaults = {
-    # show hidden files
+    # Non-default: show hidden files (default is false)
     NSGlobalDomain.AppleShowAllFiles = true;
 
-    # trackpad sensitivity
+    # Non-default: fast key repeat (default is 6)
+    NSGlobalDomain.KeyRepeat = 2;
+
+    # Non-default: faster initial key repeat delay (default is 68)
+    NSGlobalDomain.InitialKeyRepeat = 30;
+
+    # Non-default: auto switch between dark/light mode (default is false)
+    NSGlobalDomain.AppleInterfaceStyleSwitchesAutomatically = true;
+
+    # Non-default: disable swipe navigation with scrolls (default is true)
+    NSGlobalDomain.AppleEnableSwipeNavigateWithScrolls = false;
+
+    # Non-default: trackpad sensitivity (default is 1.0)
     NSGlobalDomain."com.apple.trackpad.scaling" = 2.0;
 
-    # firm trackpad click
+    # Non-default: firm click (default is 1 = medium)
     trackpad.FirstClickThreshold = 2;
 
-    # auto hide dock
+    # Non-default: auto hide dock (default is false)
     dock.autohide = true;
 
-    # hide files on desktop
+    # Non-default: hide desktop icons (default is false)
     WindowManager.StandardHideDesktopIcons = true;
 
-    # control
+    # Non-default: hide AirDrop/Bluetooth from control center
     controlcenter.AirDrop = false;
     controlcenter.Bluetooth = false;
+
+    # Non-default: show battery percentage (default is false)
     controlcenter.BatteryShowPercentage = true;
 
-    # auto-install updates
+    # Non-default: auto-install macOS updates
     SoftwareUpdate.AutomaticallyInstallMacOSUpdates = true;
 
+    # Non-default: show path bar (default is false)
     finder.ShowPathbar = true;
+
+    # Non-default: allow quitting Finder (default is false)
     finder.QuitMenuItem = true;
+
+    # Non-default: column view (default is icnv = icon view)
     finder.FXPreferredViewStyle = "clmv";
+
+    # Non-default: auto-remove old trash items
     finder.FXRemoveOldTrashItems = true;
 
+    # Non-default: hide recent apps in dock (default is true)
     dock.show-recents = false;
+
+    # Non-default: larger dock icons (default is 48)
+    dock.tilesize = 64;
+
+    # Non-default: bottom-right hot corner = Quick Note (14)
+    dock.wvous-br-corner = 14;
+
     dock.persistent-apps = [
       "/Applications/Safari.app"
       "/System/Applications/Notes.app"
@@ -371,6 +403,22 @@
     ];
 
   };
+
+  # Non-default: custom DNS (Cloudflare instead of DHCP)
+  networking.knownNetworkServices = [
+    "Wi-Fi"
+    "USB 10/100/1000 LAN"
+    "Display Ethernet"
+    "USB 10/100/1G/2.5G LAN"
+    "Thunderbolt Bridge"
+    "iPhone USB"
+  ];
+  networking.dns = [
+    "1.1.1.1"
+    "1.0.0.1"
+    "2606:4700:4700::1111"
+    "2606:4700:4700::1001"
+  ];
 
   security.pam.services.sudo_local.touchIdAuth = true;
 
