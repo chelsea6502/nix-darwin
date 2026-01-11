@@ -27,8 +27,10 @@
     # Pr*prietary software
     "microsoft-office"
     "microsoft-teams"
-    "affinity"
+    #"affinity"
     "google-chrome"
+    "battle-net"
+    "steam"
     # "parallels"  # needs manual install
 
     # Open Source
