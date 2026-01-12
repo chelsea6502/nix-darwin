@@ -6,6 +6,14 @@
 
   nixpkgs.hostPlatform = "aarch64-darwin";
 
+  # Workaround for https://github.com/NixOS/nixpkgs/issues/476794
+  # nix package tests fail on aarch64-darwin
+  nixpkgs.overlays = [
+    (final: prev: {
+      nix = prev.nix.overrideAttrs (old: { doCheck = false; });
+    })
+  ];
+
   environment.systemPackages = with pkgs; [
     nodejs
     git
@@ -93,6 +101,9 @@
       export ANTHROPIC_API_KEY="$(cat ~/.config/sops-nix/secrets/anthropic_api_key 2>/dev/null || echo "")"
       export SOPS_AGE_KEY_FILE="/Users/chelsea/.config/sops/age/keys.txt"
       export EDITOR="nvim"
+      
+      # GitHub token for nix flake updates (avoids API rate limits)
+      export NIX_CONFIG="access-tokens = github.com=$(cat ~/.config/sops-nix/secrets/github_api_key 2>/dev/null)"
 
       # Auto-activate Python venvs
       auto_venv() {
