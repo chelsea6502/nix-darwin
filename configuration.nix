@@ -40,6 +40,10 @@
     "ferdium"
     "anki"
     "pgadmin4"
+    "claude"
+    "docker"
+    "wipr"
+    "yubico-authenticator"
   ];
 
   users.users.chelsea.name = "chelsea";
@@ -404,6 +408,26 @@
       "/System/Applications/Mail.app"
     ];
 
+  };
+
+  # Chinese Pinyin input source
+  system.defaults.CustomUserPreferences = {
+    "com.apple.HIToolbox" = {
+      AppleEnabledInputSources = [
+        {
+          InputSourceKind = "Keyboard Layout";
+          "KeyboardLayout ID" = 0;
+          "KeyboardLayout Name" = "U.S.";
+        }
+        {
+          "Bundle ID" = "com.apple.inputmethod.SCIM";
+          InputSourceKind = "Input Mode";
+          "Input Mode" = "com.apple.inputmethod.SCIM.Pinyin";
+        }
+      ];
+      # Use Caps Lock to switch input sources
+      AppleFnUsageType = 3;  # 3 = Change Input Source
+    };
   };
 
   # Non-default: custom DNS (Cloudflare instead of DHCP)
