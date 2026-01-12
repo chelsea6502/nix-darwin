@@ -39,7 +39,7 @@
 
     # Open Source
     "alacritty"
-    "eqmac"
+    #"eqmac"
     "vscodium"
     "ferdium"
     "anki"
