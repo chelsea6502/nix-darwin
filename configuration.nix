@@ -45,8 +45,8 @@
     "anki"
     "pgadmin4"
     "claude"
-    "docker"
-    "wipr"
+    "docker-desktop"
+    #"wipr"
     "yubico-authenticator"
   ];
 
