@@ -143,10 +143,8 @@
               Ef = "nvim ~/.config/nix-darwin/flake.nix";
               switch = "sudo darwin-rebuild switch --flake ~/.config/nix-darwin/";
               nix-update = "nix flake update --flake ~/.config/nix-darwin/";
-              nix-clean = "nix-collect-garbage -d && nix-store --optimise";
-              nix-deepclean = "sudo nix-env --delete-generations old --profile /nix/var/nix/profiles/system && sudo nix-clean";
-              nix-verify = "sudo nix-store --verify --check-contents --repair";
-              nix-full = "nix-update && switch && nix-clean && nix-verify";
+              nix-clean = "sudo nix-env --delete-generations old --profile /nix/var/nix/profiles/system && nix-collect-garbage -d && nix-store --optimise";
+              nix-full = "nix-update && switch && nix-clean && sudo nix-store --verify --check-contents --repair";
               nix-fix = "sudo mv /etc/zshrc /etc/zshrc.before-nix-darwin && sudo mv /etc/zprofile /etc/zprofile.before-nix-darwin && sudo darwin-rebuild switch --flake ~/.config/nix-darwin/";
               pydev = "${pkgs.uv}/bin/uv venv && source .venv/bin/activate && ${pkgs.uv}/bin/uv pip install -r requirements.txt";
             };
