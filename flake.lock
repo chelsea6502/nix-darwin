@@ -284,29 +284,13 @@
         "type": "github"
       }
     },
-    "nix-modules": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1764547777,
-        "narHash": "sha256-62j03G4iEvXmwNjYDx7Ni+hVMK0IVZyDR5h0MpQjF70=",
-        "owner": "chelsea6502",
-        "repo": "nix-modules",
-        "rev": "20736cb3a954edc28fc6b755e04a314d159cab0b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "chelsea6502",
-        "repo": "nix-modules",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1769920068,
-        "narHash": "sha256-/KI/kH7gr3/IOuep5DoQzCAEUmwr9lCqUJctAFRhGr0=",
+        "lastModified": 1769933782,
+        "narHash": "sha256-GlZemJ2dxhXMMq6TNyt588OFv4/jIt3J1QVBO9MspBE=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "325d50b31e59e24e023201ec2d1057b876bd0efa",
+        "rev": "64728753f1a42c81c5688a136a6bee173665acc9",
         "type": "github"
       },
       "original": {
@@ -439,7 +423,6 @@
         "home-manager": "home-manager",
         "nix-darwin": "nix-darwin",
         "nix-homebrew": "nix-homebrew",
-        "nix-modules": "nix-modules",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
         "sops-nix": "sops-nix",
