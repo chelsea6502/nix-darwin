@@ -14,9 +14,6 @@
 
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
 
-    nix-modules.url = "github:chelsea6502/nix-modules";
-    nix-modules.flake = false;
-
     sops-nix.url = "github:Mic92/sops-nix";
   };
 
@@ -143,11 +140,7 @@
             programs.zsh.syntaxHighlighting.enable = true;
             programs.zsh.shellAliases = {
               edit = "nvim";
-              Ec = "nvim ~/.config/nix-darwin/configuration.nix";
-              EC = "Ec && switch";
-              ECC = "Ec && nix-full";
               Ef = "nvim ~/.config/nix-darwin/flake.nix";
-              En = "nvim ~/.config/nix-darwin/modules/nixvim.nix";
               switch = "sudo darwin-rebuild switch --flake ~/.config/nix-darwin/";
               nix-update = "nix flake update --flake ~/.config/nix-darwin/";
               nix-clean = "nix-collect-garbage -d && nix-store --optimise";
@@ -155,8 +148,6 @@
               nix-verify = "sudo nix-store --verify --check-contents --repair";
               nix-full = "nix-update && switch && nix-clean && nix-verify";
               nix-fix = "sudo mv /etc/zshrc /etc/zshrc.before-nix-darwin && sudo mv /etc/zprofile /etc/zprofile.before-nix-darwin && sudo darwin-rebuild switch --flake ~/.config/nix-darwin/";
-              z = "zellij";
-
               pydev = "${pkgs.uv}/bin/uv venv && source .venv/bin/activate && ${pkgs.uv}/bin/uv pip install -r requirements.txt";
             };
 
