@@ -53,6 +53,7 @@
                 qmk
                 postgresql
                 terraform
+                nixfmt
               ];
 
               nix-homebrew.enable = true;
@@ -98,6 +99,9 @@
                 programs.home-manager.enable = true;
                 home.stateVersion = "25.05";
 
+                # Disable Stylix for VSCode
+                stylix.targets.vscode.enable = false;
+
                 # VSCodium configuration
                 programs.vscode = {
                   enable = true;
@@ -118,9 +122,34 @@
                     ];
 
                     userSettings = {
-                      # Editor Font Size (override Stylix)
-                      "editor.fontSize" = lib.mkForce 12;
-                      "terminal.integrated.fontSize" = lib.mkForce 12;
+                      # Editor Font Size
+                      "editor.fontSize" = 14;
+                      "terminal.integrated.fontSize" = 14;
+
+                      # Use default dark theme
+                      "workbench.colorTheme" = "Default Dark Modern";
+
+                      # Terminal Colors - High contrast readable colors
+                      "workbench.colorCustomizations" = {
+                        "terminal.foreground" = "#CCCCCC";
+                        "terminal.background" = "#1E1E1E";
+                        "terminal.ansiBlack" = "#000000";
+                        "terminal.ansiRed" = "#F48771";
+                        "terminal.ansiGreen" = "#A9DC76";
+                        "terminal.ansiYellow" = "#FFD866";
+                        "terminal.ansiBlue" = "#78DCE8";
+                        "terminal.ansiMagenta" = "#AB9DF2";
+                        "terminal.ansiCyan" = "#78DCE8";
+                        "terminal.ansiWhite" = "#FCFCFA";
+                        "terminal.ansiBrightBlack" = "#727072";
+                        "terminal.ansiBrightRed" = "#FC9867";
+                        "terminal.ansiBrightGreen" = "#A9DC76";
+                        "terminal.ansiBrightYellow" = "#FFD866";
+                        "terminal.ansiBrightBlue" = "#78DCE8";
+                        "terminal.ansiBrightMagenta" = "#AB9DF2";
+                        "terminal.ansiBrightCyan" = "#78DCE8";
+                        "terminal.ansiBrightWhite" = "#FCFCFA";
+                      };
 
                       # ESLint Configuration
                       "eslint.enable" = true;
